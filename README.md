@@ -14,4 +14,4 @@ A01333807
 SSollestre
 
 ## Any important comments you'd like to make about your work:
-I started assignment02 on November 20, 2022.
+I started assignment02 on November 23, 2022.
