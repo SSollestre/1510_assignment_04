@@ -1,4 +1,4 @@
-# 1510-Lab-9
+# 1510_assignment_02
 
 Every program needs a README.md
 
