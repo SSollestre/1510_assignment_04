@@ -11,7 +11,8 @@ def make_character():
         "Strength": 10,
         "Vitality": 10,
         "Dexterity": 10,
-        "EXP": 0
+        "Level": 1,
+        "Experience": 0
     }
     return character_board
 
@@ -21,7 +22,7 @@ def display_character_info(char):
     strength = character["Strength"]
     vitality = character["Vitality"]
     dexterity = character["Dexterity"]
-    exp = character["EXP"]
+    exp = character["Experience"]
     print("Name:%s\nStrength:%s\nVitality:%x\nDexterity:%s\nEXP:%s" % (name, strength, vitality, dexterity, exp))
 
 
@@ -32,7 +33,7 @@ def character_has_leveled(char):
     return False
 
 
-
+execute_glowup_protocol
 
 
 
