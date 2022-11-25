@@ -13,7 +13,8 @@ def make_character():
         "Vitality": 10,
         "Dexterity": 10,
         "Level": 1,
-        "Experience": 0
+        "Experience": 0,
+        "Goal": False
     }
     return character_board
 
@@ -51,12 +52,24 @@ def execute_challenge_protocol(char):
         action = input("What do you want to do?")
         print("You %s" % action)
         bandit["Health"] = 0
+        char["Goal"] = True
+
+
+def check_if_goal_attained(char):
+    if char["Goal"]:
+        return True
+    return False
 
 
 character = make_character()
 display_character_info(character)
 character["Experience"] = 51
 status = character_has_leveled(character)
+goal = check_if_goal_attained(character)
+print(goal)
+
 execute_glowup_protocol(character, status)
 display_character_info(character)
 execute_challenge_protocol(character)
+goal = check_if_goal_attained(character)
+print(goal)
