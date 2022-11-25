@@ -25,5 +25,16 @@ def display_character_info(char):
     print("Name:%s\nStrength:%s\nVitality:%x\nDexterity:%s\nEXP:%s" % (name, strength, vitality, dexterity, exp))
 
 
+def character_has_leveled(char):
+    exp = char["EXP"]
+    if exp > 50:
+        return True
+    return False
+
+
+
+
+
+
 character = make_character()
 display_character_info(character)
