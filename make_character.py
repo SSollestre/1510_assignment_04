@@ -16,14 +16,14 @@ def make_character():
     return character_board
 
 
-# def display_character_info(char):
-#     name = character["name"]
-#     strength = character["Strength"]
-#     vitality = character["Vitality"]
-#     dexterity = character["Dexterity"]
-#     exp = character["EXP"]
-#     print("Name:%s\nStrength:%s\nVitality:%x\nDexterity:%s\nEXP:%s" % (name, strength, vitality, dexterity, exp))
-#
-#
-# character = make_character()
-# display_character_info(character)
+def display_character_info(char):
+    name = character["name"]
+    strength = character["Strength"]
+    vitality = character["Vitality"]
+    dexterity = character["Dexterity"]
+    exp = character["EXP"]
+    print("Name:%s\nStrength:%s\nVitality:%x\nDexterity:%s\nEXP:%s" % (name, strength, vitality, dexterity, exp))
+
+
+character = make_character()
+display_character_info(character)
