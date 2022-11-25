@@ -6,7 +6,7 @@ Sean Sollestre    A01333807
 
 def make_character():
     name = input("What is your name?\n")
-    character_board ={
+    character_board = {
         "name": name,
         "Strength": 10,
         "Vitality": 10,
@@ -18,12 +18,14 @@ def make_character():
 
 
 def display_character_info(char):
-    name = character["name"]
-    strength = character["Strength"]
-    vitality = character["Vitality"]
-    dexterity = character["Dexterity"]
+    name = char["name"]
+    strength = char["Strength"]
+    vitality = char["Vitality"]
+    dexterity = char["Dexterity"]
     exp = character["Experience"]
-    print("Name:%s\nStrength:%s\nVitality:%x\nDexterity:%s\nEXP:%s" % (name, strength, vitality, dexterity, exp) + "\n")
+    lvl = character["Level"]
+    print("Name:%s\nStrength:%s\nVitality:%s\nDexterity:%s\nLevel:%s\nEXP:%s"
+          % (name, strength, vitality, dexterity, lvl, exp) + "\n")
 
 
 def character_has_leveled(char):
@@ -41,7 +43,7 @@ def execute_glowup_protocol(char, check):
 
 character = make_character()
 display_character_info(character)
-character["Experience"]
+character["Experience"] = 51
 status = character_has_leveled(character)
 execute_glowup_protocol(character, status)
 display_character_info(character)
