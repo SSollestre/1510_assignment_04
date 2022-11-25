@@ -23,19 +23,25 @@ def display_character_info(char):
     vitality = character["Vitality"]
     dexterity = character["Dexterity"]
     exp = character["Experience"]
-    print("Name:%s\nStrength:%s\nVitality:%x\nDexterity:%s\nEXP:%s" % (name, strength, vitality, dexterity, exp))
+    print("Name:%s\nStrength:%s\nVitality:%x\nDexterity:%s\nEXP:%s" % (name, strength, vitality, dexterity, exp) + "\n")
 
 
 def character_has_leveled(char):
-    exp = char["EXP"]
+    exp = char["Experience"]
     if exp > 50:
         return True
     return False
 
 
-execute_glowup_protocol
-
+def execute_glowup_protocol(char, check):
+    if check:
+        char["Level"] = char["Level"] + 1
+        char["Experience"] = 0
 
 
 character = make_character()
+display_character_info(character)
+character["Experience"]
+status = character_has_leveled(character)
+execute_glowup_protocol(character, status)
 display_character_info(character)
