@@ -97,9 +97,6 @@ def character_has_leveled(char):
 
 
 def execute_glowup_protocol(char, check):
-    double_strike = {
-        "Double Strike": attack_skill
-    }
     if check:
         print(char["name"], "has leveled up!\n\nNew stats:")
         char["max_health"] *= 1.5
@@ -110,7 +107,7 @@ def execute_glowup_protocol(char, check):
         char["level"] = char["level"] + 1
         char["exp"] = 0
         if char['level'] == 2:
-            char["skills"].append(attack_skill.__name__)
+            char["skills"].append(double_strike.__name__)
         display_character_info(char)
     return char
 
