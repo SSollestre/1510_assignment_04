@@ -96,7 +96,7 @@ def character_has_leveled(char):
     return False
 
 
-def execute_glowup_protocol(char, check):  #
+def execute_glowup_protocol(char, check):
     double_strike = {
         "Double Strike": attack_skill
     }
