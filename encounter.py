@@ -164,7 +164,9 @@ def main():
         for count, value in valid_moves:
             print(count, value)
         check_level = character_has_leveled(character)
-        execute_glowup_protocol(character, check_level)
+        if check_level:
+            execute_glowup_protocol(character, check_level)
+            continue
         move = input("\nPlease enter an action:")
         if move == '1':
             display_character_info(character)
