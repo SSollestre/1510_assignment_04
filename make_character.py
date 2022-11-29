@@ -86,7 +86,7 @@ def character_has_leveled(char):
     return False
 
 
-def execute_glowup_protocol(char, check): #
+def execute_glowup_protocol(char, check):
     if check:
         print(char["name"], "has leveled up!\n\nNew stats:")
         char["max_health"] *= 0.5
