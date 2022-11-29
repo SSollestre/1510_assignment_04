@@ -157,9 +157,13 @@ def check_if_goal_attained(char):
 
 character = make_character()
 while character["health"] > 0:
+    valid_moves = enumerate(["Display character information", "Start encounter"])
+    print("Actions available:\n")
+    for count, value in valid_moves:
+        print(count, value)
     check_level = character_has_leveled(character)
     execute_glowup_protocol(character, check_level)
-    move = input("Please enter an action:")
+    move = input("\nPlease enter an action:")
     if move == '1':
         display_character_info(character)
     elif move == '2':
