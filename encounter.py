@@ -39,7 +39,7 @@ def double_strike(char, enemy):
 
 
 def guard(char, enemy):
-    print(char["name"], "braces himself")
+    print(char["name"], "braces themselves")
     damage = (enemy["strength"] - (0.25 * char["defense"])) * 1.5
     char["health"] += damage
     return char
