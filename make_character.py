@@ -4,7 +4,7 @@ Sean Sollestre    A01333807
 """
 
 
-def make_character():  #
+def make_character():
     name = input("What is your name?\n")
     character_board = {
         "name": name,
@@ -21,7 +21,7 @@ def make_character():  #
     return character_board
 
 
-def attack(char, enemy):  #
+def attack(char, enemy):
     damage = char["strength"] - (0.25 * enemy["defense"])
     enemy["health"] -= damage
     print(char["name"], "strikes", enemy["name"], "for", damage, "damage!")
