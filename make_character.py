@@ -115,7 +115,7 @@ def execute_glowup_protocol(char, check):
     return char
 
 
-def execute_challenge_protocol(char):  #
+def execute_challenge_protocol(char):
     print("\n***\nCombat has initiated\n***\n")
     enemy = return_entity(char["level"])
     while enemy["health"] > 0 and char["health"] > 0:
