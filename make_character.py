@@ -28,7 +28,7 @@ def attack(char, enemy):  #
     return enemy
 
 
-def attack_skill(char, enemy):  #
+def attack_skill(char, enemy):
     damage = char["strength"] - (0.25 * enemy["defense"])
     enemy["health"] -= damage * 2
     print(char["name"], "strikes", enemy["name"], "for", damage, "damage!")
