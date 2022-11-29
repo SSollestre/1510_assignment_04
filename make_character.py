@@ -129,13 +129,13 @@ def execute_challenge_protocol(char):
                 char['skills']["Double Strike"](char, enemy)
         if enemy["health"] <= 0:
             char["exp"] += enemy["exp"]
-            print("\n" + enemy["name"], "had been defeated\n")
+            print("\n" + enemy["name"], "has been defeated\n")
             break
         attack(enemy, char)
         if char["health"] <= 0:
             char["exp"] -= enemy["exp"]
-            print("\n" + char["name"], "had been defeated\n\nYou have lost some exp")
-            break
+            print("\n" + char["name"], "has been defeated\n\n")
+            return char
     print("\n***\nCombat had ended\n***\n")
     char["health"] = char["max_health"]
     return char
@@ -148,7 +148,7 @@ def check_if_goal_attained(char):
 
 
 character = make_character()
-while True:
+while character["health"] > 0:
     check_level = character_has_leveled(character)
     execute_glowup_protocol(character, check_level)
     move = input("Please enter an action:")
@@ -158,6 +158,7 @@ while True:
         execute_challenge_protocol(character)
     elif move == 'q':
         break
+
 
 
 
