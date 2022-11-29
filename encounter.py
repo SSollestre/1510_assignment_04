@@ -38,6 +38,13 @@ def double_strike(char, enemy):
     return enemy
 
 
+def guard(char, enemy):
+    print(char["name"], "braces himself")
+    damage = (enemy["strength"] - (0.25 * char["defense"])) * 1.5
+    char["health"] += damage
+    return char
+
+
 def return_entity(level):
     bandit = {
         "name": "Bandit",
@@ -112,6 +119,9 @@ def execute_glowup_protocol(char, check):
         if char['level'] == 2:
             char["skills"]["Double Strike"] = double_strike
         display_character_info(char)
+        if char['level'] == 3:
+            char["skills"]["Guard"] = guard
+        display_character_info(char)
     return char
 
 
@@ -136,6 +146,12 @@ def execute_challenge_protocol(char):
             else:
                 print(char['name'], "uses", list(char['skills'].keys())[1])
                 char['skills']["Double Strike"](char, enemy)
+        if action == '3':
+            if "Guard" not in char["skills"]:
+                print("You do not know that move")
+            else:
+                print(char['name'], "uses", list(char['skills'].keys())[1])
+                char['skills']["Guard"](char, enemy)
         if enemy["health"] <= 0:
             char["exp"] += enemy["exp"]
             print("\n" + enemy["name"], "has been defeated\n")
