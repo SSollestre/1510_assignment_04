@@ -53,6 +53,7 @@ def return_entity(level):
         "defense": 10,
         "dexterity": 10,
         "level": 1,
+        "goal": False,
         "exp": 25
     }
 
@@ -63,6 +64,7 @@ def return_entity(level):
         "defense": 10,
         "dexterity": 10,
         "level": 2,
+        "goal": False,
         "exp": 25
     }
 
@@ -73,6 +75,7 @@ def return_entity(level):
         "defense": 20,
         "dexterity": 10,
         "level": 3,
+        "goal": True,
         "exp": 25
     }
 
@@ -163,6 +166,7 @@ def execute_challenge_protocol(char):
             return char
     print("\n***\nCombat had ended\n***\n")
     char["health"] = char["max_health"]
+    char["goal"] = enemy["goal"]
     return char
 
 
@@ -174,7 +178,8 @@ def check_if_goal_attained(char):
 
 def main():
     character = make_character()
-    while character["health"] > 0:
+    achieved_goal = False
+    while not achieved_goal and character["health"] > 0:
         valid_moves = enumerate(["Display character information", "Start encounter"], 1)
         print("Actions available:\n")
         for count, value in valid_moves:
@@ -190,6 +195,8 @@ def main():
             execute_challenge_protocol(character)
         elif move == 'q':
             break
+        achieved_goal = check_if_goal_attained(character)
+    print("\nCongratulations! You have escaped the bandits!")
 
 
 if __name__ == "__main__":
