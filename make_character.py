@@ -16,7 +16,9 @@ def make_character():
         "level": 1,
         "exp": 0,
         "goal": False,
-        "skills": {}
+        "skills": {
+            "Basic Attack": attack
+        }
     }
     return character_board
 
@@ -116,11 +118,17 @@ def execute_challenge_protocol(char):
     print("\n***\nCombat has initiated\n***\n")
     enemy = return_entity(char["level"])
     while enemy["health"] > 0 and char["health"] > 0:
+        moves = []
+        moves.extend(char["skills"])
+        valid_moves = enumerate(moves, 1)
+        print("\nValid Moves:")
+        for count, value in valid_moves:
+            print(count, value)
         print("\n" + char['name'], "current HP:", char["health"])
         print(enemy['name'], "current HP:", str(enemy["health"]) + '\n')
         action = input("Please enter an action:")
         if action == '1':
-            attack(char, enemy)
+            char['skills']["Basic Attack"](char, enemy)
         if action == '2':
             if "Double Strike" not in char["skills"]:
                 print("You do not know that move")
