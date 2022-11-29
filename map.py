@@ -246,7 +246,7 @@ while True:
 
 
 def main():
-    Map.print_map()
+    m.print_map()
 
 
 if __name__ == "__main__":
