@@ -125,8 +125,11 @@ def execute_challenge_protocol(char):
         if action == '1':
             attack(char, enemy)
         if action == '2':
-            print(char['name'], "uses", char['skills'][0])
-            eval(char['skills'][0])(char, enemy)
+            if "attack_skill" not in char["skills"]:
+                print("You do not know that move")
+            else:
+                print(char['name'], "uses", char['skills'][0])
+                eval(char['skills'][0])(char, enemy)
         if enemy["health"] <= 0:
             char["exp"] += enemy["exp"]
             print("\n" + enemy["name"], "had been defeated\n")
