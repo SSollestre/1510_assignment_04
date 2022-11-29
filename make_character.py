@@ -8,16 +8,53 @@ def make_character():
     name = input("What is your name?\n")
     character_board = {
         "name": name,
-        "Health": 50,
-        "Strength": 10,
-        "Vitality": 10,
-        "Dexterity": 10,
-        "Level": 1,
-        "Experience": 0,
-        "Goal": False
+        "health": 50,
+        "strength": 10,
+        "vitality": 10,
+        "dexterity": 10,
+        "level": 1,
+        "experience": 0,
+        "goal": False
     }
     return character_board
 
+
+def return_entity(level):
+    bandit = {
+        "name": "Bandit",
+        "health": 50,
+        "strength": 10,
+        "vitality": 10,
+        "dexterity": 10,
+        "level": 1,
+    }
+
+    bandit_lieutenant = {
+        "name": "Bandit Lieutenant",
+        "health": 50,
+        "strength": 10,
+        "vitality": 10,
+        "dexterity": 10,
+        "level": 2,
+    }
+
+    bandit_chief = {
+        "name": "Bandit Chief",
+        "health": 50,
+        "strength": 10,
+        "vitality": 10,
+        "dexterity": 10,
+        "level": 3,
+    }
+
+    if level == 1:
+        return bandit
+
+    elif level == 2:
+        return bandit_lieutenant
+
+    elif level == 3:
+        return bandit_chief
 
 def display_character_info(char):
     name = char["name"]
