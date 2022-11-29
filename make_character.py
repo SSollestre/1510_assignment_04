@@ -77,7 +77,7 @@ def return_entity(level):
         return bandit_chief
 
 
-def display_character_info(char):  #
+def display_character_info(char):
     name = char["name"]
     strength = char["strength"]
     defense = char["defense"]
