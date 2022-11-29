@@ -62,8 +62,8 @@ def return_entity(level):
     bandit_chief = {
         "name": "Bandit Chief",
         "health": 150,
-        "strength": 20,
-        "defense": 10,
+        "strength": 30,
+        "defense": 20,
         "dexterity": 10,
         "level": 3,
         "exp": 25
@@ -134,7 +134,7 @@ def execute_challenge_protocol(char):
             if "Double Strike" not in char["skills"]:
                 print("You do not know that move")
             else:
-                print(char['name'], "uses", list(char['skills'].keys())[0])
+                print(char['name'], "uses", list(char['skills'].keys())[1])
                 char['skills']["Double Strike"](char, enemy)
         if enemy["health"] <= 0:
             char["exp"] += enemy["exp"]
