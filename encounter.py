@@ -80,13 +80,14 @@ def return_entity(level):
 
 
 def display_character_info(char):
+    print("\nCharacter information:\n")
     name = char["name"]
     strength = char["strength"]
     defense = char["defense"]
     dexterity = char["dexterity"]
-    exp = character["exp"]
-    lvl = character["level"]
-    skills = character["skills"]
+    exp = char["exp"]
+    lvl = char["level"]
+    skills = char["skills"]
     print("Name:%s\nStrength:%s\ndefense:%s\nDexterity:%s\nLevel:%s\nSkills:%s\nEXP:%s"
           % (name, strength, defense, dexterity, lvl, list(skills.keys()), exp) + "\n")
 
@@ -155,23 +156,23 @@ def check_if_goal_attained(char):
     return False
 
 
-character = make_character()
-while character["health"] > 0:
-    valid_moves = enumerate(["Display character information", "Start encounter"])
-    print("Actions available:\n")
-    for count, value in valid_moves:
-        print(count, value)
-    check_level = character_has_leveled(character)
-    execute_glowup_protocol(character, check_level)
-    move = input("\nPlease enter an action:")
-    if move == '1':
-        display_character_info(character)
-    elif move == '2':
-        execute_challenge_protocol(character)
-    elif move == 'q':
-        break
+def main():
+    character = make_character()
+    while character["health"] > 0:
+        valid_moves = enumerate(["Display character information", "Start encounter"], 1)
+        print("Actions available:\n")
+        for count, value in valid_moves:
+            print(count, value)
+        check_level = character_has_leveled(character)
+        execute_glowup_protocol(character, check_level)
+        move = input("\nPlease enter an action:")
+        if move == '1':
+            display_character_info(character)
+        elif move == '2':
+            execute_challenge_protocol(character)
+        elif move == 'q':
+            break
 
 
-
-
-
+if __name__ == "__main__":
+    main()
