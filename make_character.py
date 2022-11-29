@@ -16,7 +16,7 @@ def make_character():
         "level": 1,
         "exp": 0,
         "goal": False,
-        "skills": []
+        "skills": {}
     }
     return character_board
 
@@ -29,7 +29,7 @@ def attack(char, enemy):
 
 
 def double_strike(char, enemy):
-    damage = char["strength"] - (0.25 * enemy["defense"])
+    damage = (char["strength"] - (0.25 * enemy["defense"])) * 0.75
     enemy["health"] -= damage * 2
     print(char["name"], "strikes", enemy["name"], "for", damage, "damage!")
     print(char["name"], "strikes", enemy["name"], "for", damage, "damage!")
@@ -86,7 +86,7 @@ def display_character_info(char):
     lvl = character["level"]
     skills = character["skills"]
     print("Name:%s\nStrength:%s\ndefense:%s\nDexterity:%s\nLevel:%s\nSkills:%s\nEXP:%s"
-          % (name, strength, defense, dexterity, lvl, skills, exp) + "\n")
+          % (name, strength, defense, dexterity, lvl, list(skills.keys()), exp) + "\n")
 
 
 def character_has_leveled(char):
@@ -107,7 +107,7 @@ def execute_glowup_protocol(char, check):
         char["level"] = char["level"] + 1
         char["exp"] = 0
         if char['level'] == 2:
-            char["skills"].append(double_strike.__name__)
+            char["skills"]["Double Strike"] = double_strike
         display_character_info(char)
     return char
 
@@ -122,11 +122,11 @@ def execute_challenge_protocol(char):
         if action == '1':
             attack(char, enemy)
         if action == '2':
-            if "attack_skill" not in char["skills"]:
+            if "Double Strike" not in char["skills"]:
                 print("You do not know that move")
             else:
-                print(char['name'], "uses", char['skills'][0])
-                eval(char['skills'][0])(char, enemy)
+                print(char['name'], "uses", list(char['skills'].keys())[0])
+                char['skills']["Double Strike"](char, enemy)
         if enemy["health"] <= 0:
             char["exp"] += enemy["exp"]
             print("\n" + enemy["name"], "had been defeated\n")
