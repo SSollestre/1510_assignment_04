@@ -91,17 +91,12 @@ def return_entity(level):
 
 def display_character_info(char):
     print("\nCharacter information:\n")
-    name = char["name"]
-    strength = char["strength"]
-    defense = char["defense"]
-    dexterity = char["dexterity"]
-    exp = char["exp"]
-    lvl = char["level"]
-    skills = char["skills"]
     print("Name:%s\nStrength:%s\n"
           "Defense:%s\nDexterity:%s\n"
           "Level:%s\nSkills:%s\nEXP:%s"
-          % (name, strength, defense, dexterity, lvl, list(skills.keys()), exp) + "\n")
+          % (char["name"], char["strength"],
+             char["defense"], char["dexterity"], char["level"],
+             list(char["skills"].keys()), char["exp"]) + "\n")
 
 
 def character_has_leveled(char):
