@@ -38,7 +38,7 @@ class Map:
             # print the yth row of rooms
             for x in range(0, self.width):
                 if self.x == x and self.y == y:
-                    sys.stdout.write("[u]")  # this is the player's room
+                    sys.stdout.write("[x]")  # this is the player's room
                 else:
                     sys.stdout.write("[ ]")  # empty room
                 # now see whether there's a path to the next room
@@ -56,6 +56,128 @@ class Map:
                     sys.stdout.write("   ")
             print('')
 
+    def print_scenario(self):
+        x = self.x
+        y = self.y
+        print(scenario[(self.x, self.y)])
+
+
+scenario = {
+    (0, 0): 'You wake up in a dark damp cave. '
+            'You remember being knocked out. '
+            'It seems that you have been kidnapped.'
+            '*Safe Zone*',
+    (0, 1): 'You hear scuffling and voices.*Safe Zone*',
+    (0, 2): '',
+    (0, 3): '',
+    (0, 4): '',
+    (0, 5): '',
+    (0, 6): '',
+    (0, 7): '',
+    (0, 8): '',
+    (0, 9): '',
+
+    (1, 0): 'You hear scuffling and voices.*Safe Zone*',
+    (1, 1): 'You hear scuffling and voices.*Safe Zone*',
+    (1, 2): '',
+    (1, 3): '',
+    (1, 4): '',
+    (1, 5): '',
+    (1, 6): '',
+    (1, 7): '',
+    (1, 8): '',
+    (1, 9): '',
+
+    (2, 0): '',
+    (2, 1): '',
+    (2, 2): '',
+    (2, 3): '',
+    (2, 4): '',
+    (2, 5): '',
+    (2, 6): '',
+    (2, 7): '',
+    (2, 8): '',
+    (2, 9): '',
+
+    (3, 0): '',
+    (3, 1): '',
+    (3, 2): '',
+    (3, 3): '',
+    (3, 4): '',
+    (3, 5): '',
+    (3, 6): '',
+    (3, 7): '',
+    (3, 8): '',
+    (3, 9): '',
+
+    (4, 0): '',
+    (4, 1): '',
+    (4, 2): '',
+    (4, 3): '',
+    (4, 4): '',
+    (4, 5): '',
+    (4, 6): '',
+    (4, 7): '',
+    (4, 8): '',
+    (4, 9): '',
+
+    (5, 0): '',
+    (5, 1): '',
+    (5, 2): '',
+    (5, 3): '',
+    (5, 4): '',
+    (5, 5): '',
+    (5, 6): '',
+    (5, 7): '',
+    (5, 8): '',
+    (5, 9): '',
+
+    (6, 0): '',
+    (6, 1): '',
+    (6, 2): '',
+    (6, 3): '',
+    (6, 4): '',
+    (6, 5): '',
+    (6, 6): '',
+    (6, 7): '',
+    (6, 8): '',
+    (6, 9): '',
+
+    (7, 0): '',
+    (7, 1): '',
+    (7, 2): '',
+    (7, 3): '',
+    (7, 4): '',
+    (7, 5): '',
+    (7, 6): '',
+    (7, 7): '',
+    (7, 8): '',
+    (7, 9): '',
+
+    (8, 0): '',
+    (8, 1): '',
+    (8, 2): '',
+    (8, 3): '',
+    (8, 4): '',
+    (8, 5): '',
+    (8, 6): '',
+    (8, 7): '',
+    (8, 8): '',
+    (8, 9): '',
+
+    (9, 0): '',
+    (9, 1): '',
+    (9, 2): '',
+    (9, 3): '',
+    (9, 4): '',
+    (9, 5): '',
+    (9, 6): '',
+    (9, 7): '',
+    (9, 8): '',
+    (9, 9): '',
+
+
+}
 
 paths = [((0, 0), (0, 1)),
          ((0, 0), (1, 0)),
@@ -241,12 +363,13 @@ m = Map(10, 10, 0, 0, paths)
 
 while True:
     m.print_map()
+    m.print_scenario()
     direction = input("What direction do you want to move? [n/e/s/w] ")
     m.move(direction)
 
 
 def main():
-    m.print_map()
+    True
 
 
 if __name__ == "__main__":
