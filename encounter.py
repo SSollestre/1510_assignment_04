@@ -204,7 +204,7 @@ def main():
         valid_moves = enumerate(["Display character information", "Start encounter"], 1)
         print("Actions available:\n")
         for count, value in valid_moves:
-            print(count + ":", value)
+            print(str(count) + ":", value)
         print("q: Quit")
         move = input("\nPlease enter an action:")
         if move == '1':
