@@ -116,14 +116,15 @@ def character_has_leveled(char):
 
 def execute_glowup_protocol(char, check):
     if check:
-        print(char["name"], "has leveled up!\n\nNew stats:")
-        print("Name: %s\n"
+        print("%s has leveled up!\n\nNew Stats:\n"
+              "Name: %s\n"
               "Health: %s -> %s\n"
               "Strength: %s -> %s\n"
               "Defense: %s -> %s\n"
               "Dexterity: %s -> %s\n"
-              "Level: %s -> %s\n"
+              "Level: %s -> %s"
               % (char["name"],
+                 char["name"],
                  char["max_health"], char["max_health"] * 1.5,
                  char["strength"], char["strength"] * 1.5,
                  char["defense"], char["defense"] * 1.5,
@@ -140,7 +141,7 @@ def execute_glowup_protocol(char, check):
             print("Skills:%s + ['Double Strike']" % (list(char["skills"].keys())) + "\n")
             char["skills"]["Double Strike"] = double_strike
         if char['level'] == 3:
-            print("Skills:%s + ['Guard]'" % (list(char["skills"].keys())) + "\n")
+            print("Skills:%s + ['Guard']" % (list(char["skills"].keys())) + "\n")
             char["skills"]["Guard"] = guard
     return char
 
@@ -197,14 +198,14 @@ def main():
     character = make_character()
     achieved_goal = False
     while not achieved_goal and character["health"] > 0:
-        valid_moves = enumerate(["Display character information", "Start encounter"], 1)
-        print("Actions available:\n")
-        for count, value in valid_moves:
-            print(count, value)
         check_level = character_has_leveled(character)
         if check_level:
             execute_glowup_protocol(character, check_level)
-            continue
+        valid_moves = enumerate(["Display character information", "Start encounter"], 1)
+        print("Actions available:\n")
+        for count, value in valid_moves:
+            print(count + ":", value)
+        print("q: Quit")
         move = input("\nPlease enter an action:")
         if move == '1':
             display_character_info(character)
@@ -213,7 +214,8 @@ def main():
         elif move == 'q':
             break
         achieved_goal = check_if_goal_attained(character)
-    print("\nCongratulations! You have escaped the bandits!")
+    if achieved_goal:
+        print("\nCongratulations! You have escaped the bandits!")
 
 
 if __name__ == "__main__":
