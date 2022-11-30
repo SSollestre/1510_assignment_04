@@ -98,7 +98,9 @@ def display_character_info(char):
     exp = char["exp"]
     lvl = char["level"]
     skills = char["skills"]
-    print("Name:%s\nStrength:%s\ndefense:%s\nDexterity:%s\nLevel:%s\nSkills:%s\nEXP:%s"
+    print("Name:%s\nStrength:%s\n"
+          "Defense:%s\nDexterity:%s\n"
+          "Level:%s\nSkills:%s\nEXP:%s"
           % (name, strength, defense, dexterity, lvl, list(skills.keys()), exp) + "\n")
 
 
