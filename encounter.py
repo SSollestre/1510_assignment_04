@@ -91,12 +91,20 @@ def return_entity(level):
 
 def display_character_info(char):
     print("\nCharacter information:\n")
-    print("Name:%s\nStrength:%s\n"
-          "Defense:%s\nDexterity:%s\n"
-          "Level:%s\nSkills:%s\nEXP:%s"
-          % (char["name"], char["strength"],
-             char["defense"], char["dexterity"], char["level"],
-             list(char["skills"].keys()), char["exp"]) + "\n")
+    print("Name: %s\n"
+          "Health: %s\n"
+          "Strength: %s\n"
+          "Defense: %s\n"
+          "Dexterity: %s\n"
+          "Level: %s\n"
+          "Skills: %s\n"
+          % (char["name"],
+             char["max_health"],
+             char["strength"],
+             char["defense"],
+             char["dexterity"],
+             char["level"],
+             list(char["skills"].keys()),) + "\n")
 
 
 def character_has_leveled(char):
@@ -109,6 +117,18 @@ def character_has_leveled(char):
 def execute_glowup_protocol(char, check):
     if check:
         print(char["name"], "has leveled up!\n\nNew stats:")
+        print("Name: %s\n"
+              "Health: %s -> %s\n"
+              "Strength: %s -> %s\n"
+              "Defense: %s -> %s\n"
+              "Dexterity: %s -> %s\n"
+              "Level: %s -> %s\n"
+              % (char["name"],
+                 char["max_health"], char["max_health"] * 1.5,
+                 char["strength"], char["strength"] * 1.5,
+                 char["defense"], char["defense"] * 1.5,
+                 char["dexterity"], char["dexterity"] * 1.5,
+                 char["level"], char["level"] + 1))
         char["max_health"] *= 1.5
         char["health"] *= 1.5
         char["strength"] *= 1.5
@@ -117,11 +137,11 @@ def execute_glowup_protocol(char, check):
         char["level"] = char["level"] + 1
         char["exp"] = 0
         if char['level'] == 2:
+            print("Skills:%s + ['Double Strike']" % (list(char["skills"].keys())) + "\n")
             char["skills"]["Double Strike"] = double_strike
-        display_character_info(char)
         if char['level'] == 3:
+            print("Skills:%s + ['Guard]'" % (list(char["skills"].keys())) + "\n")
             char["skills"]["Guard"] = guard
-        display_character_info(char)
     return char
 
 
