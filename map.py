@@ -1,5 +1,6 @@
 """
 """
+import random
 import sys
 
 
@@ -59,7 +60,7 @@ class Map:
     def print_scenario(self):
         x = self.x
         y = self.y
-        print(scenario[(self.x, self.y)])
+        print(f'Current location {x, y}\n{scenario[(self.x, self.y)]}')
 
 
 scenario = {
@@ -68,7 +69,7 @@ scenario = {
             'It seems that you have been kidnapped.'
             '*Safe Zone*',
     (0, 1): 'You hear scuffling and voices.*Safe Zone*',
-    (0, 2): '',
+    (0, 2): 'It`s very dark, you can`t make out anything.',
     (0, 3): '',
     (0, 4): '',
     (0, 5): '',
@@ -90,7 +91,7 @@ scenario = {
 
     (2, 0): '',
     (2, 1): '',
-    (2, 2): '',
+    (2, 2): 'It`s very dark, you can`t make out anything.',
     (2, 3): '',
     (2, 4): '',
     (2, 5): '',
@@ -175,7 +176,6 @@ scenario = {
     (9, 7): '',
     (9, 8): '',
     (9, 9): '',
-
 
 }
 
@@ -360,6 +360,18 @@ paths = [((0, 0), (0, 1)),
          ((9, 7), (9, 8)),
          ((9, 8), (9, 9))]
 m = Map(10, 10, 0, 0, paths)
+
+
+def chance_encounter():
+    number = random.randint(0, 10)
+    for char["level"] in range(0, 4):
+        if char["level"] == 1 and number >= 5:
+            execute_challenge_protocol(char)
+        elif char["level"] == 2 and number >= 5:
+            execute_challenge_protocol(char)
+        else:
+            execute_challenge_protocol(char)
+
 
 while True:
     m.print_map()
