@@ -155,7 +155,7 @@ def execute_challenge_protocol(char):
         valid_moves = enumerate(moves, 1)
         print("\nValid Moves:")
         for count, value in valid_moves:
-            print(count, value)
+            print(str(count) + ":", value)
         print("\n" + char['name'], "current HP:", char["health"])
         print(enemy['name'], "current HP:", str(enemy["health"]) + '\n')
         action = input("Please enter an action:")
