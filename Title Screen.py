@@ -45,3 +45,16 @@ def help_menu():
     print('-Use look to inspect something')
     print('-Good luck and Have fun!')
     title_screen_selections()
+
+def end_screen():
+    print('##################################')
+    print('# Thank you for Playing our DEMO #')
+    print('#      Stay tuned for more       #')
+    print('##################################')
+    title_screen_selections()
+
+def main():
+
+
+if __name__ == "__main__":
+    main()
