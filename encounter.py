@@ -153,7 +153,7 @@ def execute_challenge_protocol(char):
         moves = []
         moves.extend(char["skills"])
         valid_moves = enumerate(moves, 1)
-        print("\nValid Moves:")
+        print("\n***\nValid Moves:")
         for count, value in valid_moves:
             print(str(count) + ":", value)
         print("\n" + char['name'], "current HP:", char["health"])
@@ -215,7 +215,7 @@ def main():
             break
         achieved_goal = check_if_goal_attained(character)
     if achieved_goal:
-        print("\nCongratulations! You have escaped the bandits!")
+        print("\nCongratulations! You have successfully escaped the bandits!")
 
 
 if __name__ == "__main__":
