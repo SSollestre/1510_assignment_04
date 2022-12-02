@@ -35,12 +35,15 @@ def attack(char, enemy):
 def double_strike(char, enemy):
     damage = (char["strength"] - (0.25 * enemy["defense"])) * 0.75
     enemy["health"] -= damage * 2
+    time.sleep(0.25)
     print(char["name"], "strikes", enemy["name"], "for", damage, "damage!")
+    time.sleep(0.25)
     print(char["name"], "strikes", enemy["name"], "for", damage, "damage!")
     return enemy
 
 
 def guard(char, enemy):
+    time.sleep(0.5)
     print(char["name"], "braces themselves")
     damage = (enemy["strength"] - (0.25 * char["defense"])) * 1.5
     char["health"] += damage
