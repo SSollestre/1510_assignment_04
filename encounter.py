@@ -167,7 +167,7 @@ def display_combat_menu(char, enemy):
     print("\n***\nValid Moves:")
     for count, value in enumerate(char['skills'], 1):
         print(str(count) + ":", value)
-    print(f"\n{char['name']}'s current HP:, {char['health']}\n"
+    print(f"\n{char['name']}'s current HP: {char['health']}\n"
           f"{enemy['name']}'s current HP: {enemy['health']} \n")
 
 
