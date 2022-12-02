@@ -2,6 +2,7 @@
 """
 import random
 import sys
+import encounter
 
 
 class Map:
@@ -373,15 +374,26 @@ def chance_encounter():
             execute_challenge_protocol(char)
 
 
-while True:
-    m.print_map()
-    m.print_scenario()
-    direction = input("What direction do you want to move? [n/e/s/w] ")
-    m.move(direction)
-
-
 def main():
-    True
+    character = encounter.make_character()
+    while True:
+        m.print_map()
+        m.print_scenario()
+        direction = input("What direction do you want to move? [n/e/s/w] ")
+        m.move(direction)
+        encounter.execute_glowup_protocol(character)
+        valid_moves = enumerate(["Display character information", "Start encounter"], 1)
+        print("Actions available:\n")
+        for count, value in valid_moves:
+            print(str(count) + ":", value)
+        print("q: Quit")
+        move = input("\nPlease enter an action:")
+        if move == '1':
+            encounter.display_character_info(character)
+        elif move == '2':
+            encounter.execute_challenge_protocol(character)
+        elif move == 'q':
+            break
 
 
 if __name__ == "__main__":
