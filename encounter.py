@@ -84,14 +84,9 @@ def return_entity(level):
         "exp": 25
     }
 
-    if level == 1:
-        return bandit
-
-    elif level == 2:
-        return bandit_lieutenant
-
-    elif level == 3:
-        return bandit_chief
+    for bandit in [bandit, bandit_lieutenant, bandit_chief]:
+        if level == bandit['level']:
+            return bandit
 
 
 def display_character_info(char):
@@ -209,9 +204,7 @@ def main():
     character = make_character()
     achieved_goal = False
     while not achieved_goal and character["health"] > 0:
-        check_level = character_has_leveled(character)
-        if check_level:
-            execute_glowup_protocol(character, check_level)
+        execute_glowup_protocol(character)
         valid_moves = enumerate(["Display character information", "Start encounter"], 1)
         print("Actions available:\n")
         for count, value in valid_moves:
