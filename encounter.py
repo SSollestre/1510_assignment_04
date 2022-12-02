@@ -27,7 +27,7 @@ def make_character():
 def attack(char, enemy):
     damage = char["strength"] - (0.25 * enemy["defense"])
     enemy["health"] -= damage
-    time.sleep(0.5)
+    time.sleep(0.25)
     print(char["name"], "strikes", enemy["name"], "for", damage, "damage!")
     return enemy
 
@@ -43,7 +43,7 @@ def double_strike(char, enemy):
 
 
 def guard(char, enemy):
-    time.sleep(0.5)
+    time.sleep(0.25)
     print(char["name"], "braces themselves")
     damage = (enemy["strength"] - (0.25 * char["defense"])) * 1.5
     char["health"] += damage
@@ -121,7 +121,10 @@ def character_has_leveled(char):
 
 def execute_glowup_protocol(char, check):
     if check:
-        print(f"{char['name']} has leveled up!\n\nNew Stats:\n"
+        time.sleep(0.25)
+        print(f"{char['name']} has leveled up!\n\nNew Stats:\n")
+        time.sleep(0.25)
+        print(
               f"Name: {char['name']}\n"
               f"Health: {char['max_health']} -> {char['max_health'] * 1.5}\n"
               f"Strength: {char['strength']} -> {char['strength'] * 1.5}\n"
@@ -129,21 +132,28 @@ def execute_glowup_protocol(char, check):
               f"Dexterity: {char['dexterity']} -> {char['dexterity'] * 1.5}\n"
               f"Level: {char['level']} -> {char['level'] + 1}"
               )
-        char["max_health"] *= 1.5
-        char["health"] *= 1.5
-        char["strength"] *= 1.5
-        char["defense"] *= 1.5
-        char["dexterity"] *= 1.5
-        char["level"] = char["level"] + 1
-        char["exp"] = 0
-        if char['level'] == 2:
-            print("Skills:%s + ['Double Strike']" % (list(char["skills"].keys())) + "\n")
-            char["skills"]["Double Strike"] = double_strike
-        if char['level'] == 3:
-            print("Skills:%s + ['Guard']" % (list(char["skills"].keys())) + "\n")
-            char["skills"]["Guard"] = guard
+        scale_values(char)
+
+
+    time.sleep(0.25)
     return char
 
+
+def scale_values(char):
+    char["max_health"] *= 1.5
+    char["health"] *= 1.5
+    char["strength"] *= 1.5
+    char["defense"] *= 1.5
+    char["dexterity"] *= 1.5
+    char["level"] = char["level"] + 1
+    char["exp"] = 0
+    if char['level'] == 2:
+        print("Skills:%s + ['Double Strike']" % (list(char["skills"].keys())) + "\n")
+        char["skills"]["Double Strike"] = double_strike
+    if char['level'] == 3:
+        print("Skills:%s + ['Guard']" % (list(char["skills"].keys())) + "\n")
+        char["skills"]["Guard"] = guard
+    return char
 
 def execute_challenge_protocol(char):
     print("\n***\nCombat has initiated\n***\n")
@@ -178,7 +188,7 @@ def execute_challenge_protocol(char):
             print(f"\n{enemy['name']} has been defeated!\n")
             break
         attack(enemy, char)
-        time.sleep(0.5)
+        time.sleep(0.25)
         if char["health"] <= 0:
             char["exp"] -= enemy["exp"]
             print(f"\n{char['name']} has been defeated...\n\n")
