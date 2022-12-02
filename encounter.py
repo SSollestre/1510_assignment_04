@@ -141,6 +141,8 @@ def execute_challenge_protocol(char):
     while enemy["health"] > 0 and char["health"] > 0:
         display_combat_menu(char, enemy)
         action = input("Please enter an action:")
+        if action == '0':
+            break
         if not validate_move(action, char, enemy):
             continue
         character_enemy_interaction(char, enemy)
@@ -165,10 +167,12 @@ def character_enemy_interaction(char, enemy):
 
 def display_combat_menu(char, enemy):
     print("\n***\nValid Moves:")
+    print("0: Flee")
     for count, value in enumerate(char['skills'], 1):
         print(str(count) + ":", value)
     print(f"\n{char['name']}'s current HP: {char['health']}\n"
           f"{enemy['name']}'s current HP: {enemy['health']} \n")
+
 
 
 def validate_move(action, char, enemy):
