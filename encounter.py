@@ -116,20 +116,14 @@ def character_has_leveled(char):
 
 def execute_glowup_protocol(char, check):
     if check:
-        print("%s has leveled up!\n\nNew Stats:\n"
-              "Name: %s\n"
-              "Health: %s -> %s\n"
-              "Strength: %s -> %s\n"
-              "Defense: %s -> %s\n"
-              "Dexterity: %s -> %s\n"
-              "Level: %s -> %s"
-              % (char["name"],
-                 char["name"],
-                 char["max_health"], char["max_health"] * 1.5,
-                 char["strength"], char["strength"] * 1.5,
-                 char["defense"], char["defense"] * 1.5,
-                 char["dexterity"], char["dexterity"] * 1.5,
-                 char["level"], char["level"] + 1))
+        print(f"{char['name']} has leveled up!\n\nNew Stats:\n"
+              f"Name: {char['name']}\n"
+              f"Health: {char['max_health']} -> {char['max_health'] * 1.5}\n"
+              f"Strength: {char['strength']} -> {char['strength'] * 1.5}\n"
+              f"Defense: {char['defense']} -> {char['defense'] * 1.5}\n"
+              f"Dexterity: {char['dexterity']} -> {char['dexterity'] * 1.5}\n"
+              f"Level: {char['level']} -> {char['level'] + 1}"
+              )
         char["max_health"] *= 1.5
         char["health"] *= 1.5
         char["strength"] *= 1.5
