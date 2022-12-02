@@ -40,7 +40,7 @@ def help_menu():
     print('############################')
     print('# Welcome to the Text RPG! #')
     print('############################')
-    print('-Use n(up), w(left), s(down), e(right) to move')
+    print('-Use w(up), a(left), s(down), d(right) to move')
     print('-Type your commands to do them')
     print('-Use look to inspect something')
     print('-Good luck and Have fun!')
@@ -56,7 +56,8 @@ def end_screen():
 
 
 def main():
-    pass
+    """
+    """
 
 
 if __name__ == "__main__":

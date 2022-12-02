@@ -364,16 +364,16 @@ paths = [((0, 0), (0, 1)),
 m = Map(10, 10, 0, 0, paths)
 
 
-def chance_encounter(char):
-    number = random.randint(0, 10)
-    if char["level"] == 1 and number >= 2:
-        encounter.execute_challenge_protocol(char)
-    elif char["level"] == 2 and number >= 5:
-        encounter.execute_challenge_protocol(char)
-    elif char["level"] == 3 and number >= 8:
-        encounter.execute_challenge_protocol(char)
-    else:
-        print("There are no enemies nearby.")
+# def chance_encounter(char):
+#     number = random.randint(0, 10)
+#     if char["level"] == 1 and number <= 2:
+#         encounter.execute_challenge_protocol(char)
+#     elif char["level"] == 2 and number <= 5:
+#         encounter.execute_challenge_protocol(char)
+#     elif char["level"] == 3 and number <= 8:
+#         encounter.execute_challenge_protocol(char)
+#     else:
+#         print("Nobody notices you.")
 
 
 def main():
@@ -384,7 +384,7 @@ def main():
         # commands = ['1','2','3','q']
         m.print_scenario()
         encounter.execute_glowup_protocol(character)
-        valid_moves = enumerate(["Display character information", "Start encounter", "Display Map"], 1)
+        valid_moves = enumerate(["Display character information", "Pick a fight", "Display Map"], 1)
         print("Actions available:\n")
         for count, value in valid_moves:
             print(str(count) + ":", value)

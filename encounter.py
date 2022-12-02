@@ -3,6 +3,7 @@ Emily Tran        A00990221
 Sean Sollestre    A01333807
 """
 import time
+import random
 
 
 def make_character():
@@ -136,8 +137,8 @@ def scale_values(char):
 
 
 def execute_challenge_protocol(char):
-    print("\n***\nCombat has initiated\n***\n")
     enemy = return_entity(char["level"])
+    print(f"\n***\nCombat has initiated\n***\n{enemy['name']} glares at you menacingly.")
     while enemy["health"] > 0 and char["health"] > 0:
         display_combat_menu(char, enemy)
         action = input("Please enter an action:")
@@ -167,7 +168,7 @@ def character_enemy_interaction(char, enemy):
 
 
 def display_combat_menu(char, enemy):
-    print("\n***\nValid Moves:")
+    print("***\nValid Moves:")
     print("0: Flee")
     for count, value in enumerate(char['skills'], 1):
         print(str(count) + ":", value)
@@ -197,26 +198,41 @@ def check_if_goal_attained(char):
     return False
 
 
+def chance_encounter(char):
+    number = random.randint(0, 10)
+    if char["level"] == 1 and number <= 2:
+        execute_challenge_protocol(char)
+    elif char["level"] == 2 and number <= 5:
+        execute_challenge_protocol(char)
+    elif char["level"] == 3 and number <= 8:
+        execute_challenge_protocol(char)
+    else:
+        print("Nobody notices you.")
+
+
 def main():
-    character = make_character()
-    achieved_goal = False
-    while not achieved_goal and character["health"] > 0:
-        execute_glowup_protocol(character)
-        valid_moves = enumerate(["Display character information", "Start encounter"], 1)
-        print("***\nActions available:\n")
-        for count, value in valid_moves:
-            print(str(count) + ":", value)
-        print("q: Quit")
-        move = input("\nPlease enter an action:")
-        if move == '1':
-            display_character_info(character)
-        elif move == '2':
-            execute_challenge_protocol(character)
-        elif move == 'q':
-            break
-        achieved_goal = check_if_goal_attained(character)
-    if achieved_goal:
-        print("\nCongratulations! You have successfully escaped the bandits!")
+    """
+    Drives program.
+    """
+    # character = make_character()
+    # achieved_goal = False
+    # while not achieved_goal and character["health"] > 0:
+    #     execute_glowup_protocol(character)
+    #     valid_moves = enumerate(["Display character information", "Pick a fight"], 1)
+    #     print("***\nActions available:\n")
+    #     for count, value in valid_moves:
+    #         print(str(count) + ":", value)
+    #     print("q: Quit")
+    #     move = input("\nPlease enter an action:")
+    #     if move == '1':
+    #         display_character_info(character)
+    #     elif move == '2':
+    #         execute_challenge_protocol(character)
+    #     elif move == 'q':
+    #         break
+    #     achieved_goal = check_if_goal_attained(character)
+    # if achieved_goal:
+    #     title_screen.end_screen()
 
 
 if __name__ == "__main__":
