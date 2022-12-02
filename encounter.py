@@ -50,7 +50,7 @@ def return_entity(level):
     bandit = {
         "name": "Bandit",
         "health": 50,
-        "strength": 5,
+        "strength": 10,
         "defense": 10,
         "dexterity": 10,
         "level": 1,
