@@ -153,6 +153,7 @@ def scale_values(char):
         char["skills"]["Guard"] = guard
     return char
 
+
 def execute_challenge_protocol(char):
     print("\n***\nCombat has initiated\n***\n")
     enemy = return_entity(char["level"])
@@ -166,21 +167,7 @@ def execute_challenge_protocol(char):
         print(f"\n{char['name']}'s current HP:, {char['health']}")
         print(f"{enemy['name']}'s current HP: {enemy['health']} \n")
         action = input("Please enter an action:")
-        if action == '1':
-            char['skills']["Basic Attack"](char, enemy)
-        if action == '2':
-            if "Double Strike" not in char["skills"]:
-                print("You do not know that move")
-                continue
-            else:
-                print(f"{char['name']} uses {list(char['skills'].keys())[1]}.")
-                char['skills']["Double Strike"](char, enemy)
-        if action == '3':
-            if "Guard" not in char["skills"]:
-                print("You do not know that move")
-            else:
-                print(f"{char['name']} uses {list(char['skills'].keys())[2]}.")
-                char['skills']["Guard"](char, enemy)
+        validate_move(action, char, enemy)
         if enemy["health"] <= 0:
             char["exp"] += enemy["exp"]
             print(f"\n{enemy['name']} has been defeated!\n")
@@ -195,6 +182,24 @@ def execute_challenge_protocol(char):
     char["health"] = char["max_health"]
     char["goal"] = enemy["goal"]
     return char
+
+
+def validate_move(action, char, enemy):
+    if action == '1':
+        char['skills']["Basic Attack"](char, enemy)
+    if action == '2':
+        if "Double Strike" not in char["skills"]:
+            print("You do not know that move")
+        else:
+            print(f"{char['name']} uses {list(char['skills'].keys())[1]}.")
+            char['skills']["Double Strike"](char, enemy)
+    if action == '3':
+        if "Guard" not in char["skills"]:
+            print("You do not know that move")
+        else:
+            print(f"{char['name']} uses {list(char['skills'].keys())[2]}.")
+            char['skills']["Guard"](char, enemy)
+    return char, enemy
 
 
 def check_if_goal_attained(char):
