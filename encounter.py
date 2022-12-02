@@ -160,48 +160,49 @@ def execute_challenge_protocol(char):
     while enemy["health"] > 0 and char["health"] > 0:
         display_combat_menu(char, enemy)
         action = input("Please enter an action:")
-        validate_move(action, char, enemy)
-        if enemy["health"] <= 0:
-            char["exp"] += enemy["exp"]
-            print(f"\n{enemy['name']} has been defeated!\n")
-            break
-        attack(enemy, char)
-        time.sleep(0.25)
-        if char["health"] <= 0:
-            char["exp"] -= enemy["exp"]
-            print(f"\n{char['name']} has been defeated...\n\n")
-            return char
+        if not validate_move(action, char, enemy):
+            continue
+        character_enemy_interaction(char, enemy)
     print("\n***\nCombat has ended\n***\n")
     char["health"] = char["max_health"]
     char["goal"] = enemy["goal"]
     return char
 
 
+def character_enemy_interaction(char, enemy):
+    if enemy["health"] <= 0:
+        char["exp"] += enemy["exp"]
+        print(f"\n{enemy['name']} has been defeated!\n")
+        return
+    attack(enemy, char)
+    time.sleep(0.25)
+    if char["health"] <= 0:
+        char["exp"] -= enemy["exp"]
+        print(f"\n{char['name']} has been defeated...\n\n")
+        return char
+
+
 def display_combat_menu(char, enemy):
-    moves = char['skills']
-    valid_moves = enumerate(moves, 1)
     print("\n***\nValid Moves:")
-    for count, value in valid_moves:
+    for count, value in enumerate(char['skills'], 1):
         print(str(count) + ":", value)
     print(f"\n{char['name']}'s current HP:, {char['health']}\n"
           f"{enemy['name']}'s current HP: {enemy['health']} \n")
 
 
 def validate_move(action, char, enemy):
+    moves = list(map(str, range(1, len(char['skills']) + 1)))
+    if action not in moves:
+        print("You do not know that move")
+        return False
     if action == '1':
         char['skills']["Basic Attack"](char, enemy)
     if action == '2':
-        if "Double Strike" not in char["skills"]:
-            print("You do not know that move")
-        else:
-            print(f"{char['name']} uses {list(char['skills'].keys())[1]}.")
-            char['skills']["Double Strike"](char, enemy)
+        print(f"{char['name']} uses {list(char['skills'].keys())[1]}.")
+        char['skills']["Double Strike"](char, enemy)
     if action == '3':
-        if "Guard" not in char["skills"]:
-            print("You do not know that move")
-        else:
-            print(f"{char['name']} uses {list(char['skills'].keys())[2]}.")
-            char['skills']["Guard"](char, enemy)
+        print(f"{char['name']} uses {list(char['skills'].keys())[2]}.")
+        char['skills']["Guard"](char, enemy)
     return char, enemy
 
 
