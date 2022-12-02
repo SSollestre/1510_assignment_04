@@ -112,15 +112,8 @@ def display_character_info(char):
              list(char["skills"].keys()),) + "\n")
 
 
-def character_has_leveled(char):
-    exp = char["exp"]
-    if exp >= 50:
-        return True
-    return False
-
-
-def execute_glowup_protocol(char, check):
-    if check:
+def execute_glowup_protocol(char):
+    if char["exp"] >= 50:
         time.sleep(0.25)
         print(f"{char['name']} has leveled up!\n\nNew Stats:\n")
         time.sleep(0.25)
