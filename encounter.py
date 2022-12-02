@@ -90,21 +90,14 @@ def return_entity(level):
 
 
 def display_character_info(char):
-    print("\nCharacter information:\n")
-    print("Name: %s\n"
-          "Health: %s\n"
-          "Strength: %s\n"
-          "Defense: %s\n"
-          "Dexterity: %s\n"
-          "Level: %s\n"
-          "Skills: %s\n"
-          % (char["name"],
-             char["max_health"],
-             char["strength"],
-             char["defense"],
-             char["dexterity"],
-             char["level"],
-             list(char["skills"].keys()),) + "\n")
+    print("\nCharacter information:\n"
+          f"Name: {char['name']}\n"
+          f"Health: {char['max_health']}\n"
+          f"Strength: {char['strength']}\n"
+          f"Defense: {char['defense']}\n"
+          f"Dexterity: {char['dexterity']}\n"
+          f"Level: {char['level']}\n"
+          f"Skills: {list(char['skills'].keys())}\n")
 
 
 def execute_glowup_protocol(char):
