@@ -158,14 +158,7 @@ def execute_challenge_protocol(char):
     print("\n***\nCombat has initiated\n***\n")
     enemy = return_entity(char["level"])
     while enemy["health"] > 0 and char["health"] > 0:
-        moves = []
-        moves.extend(char["skills"])
-        valid_moves = enumerate(moves, 1)
-        print("\n***\nValid Moves:")
-        for count, value in valid_moves:
-            print(str(count) + ":", value)
-        print(f"\n{char['name']}'s current HP:, {char['health']}")
-        print(f"{enemy['name']}'s current HP: {enemy['health']} \n")
+        display_combat_menu(char, enemy)
         action = input("Please enter an action:")
         validate_move(action, char, enemy)
         if enemy["health"] <= 0:
@@ -182,6 +175,16 @@ def execute_challenge_protocol(char):
     char["health"] = char["max_health"]
     char["goal"] = enemy["goal"]
     return char
+
+
+def display_combat_menu(char, enemy):
+    moves = char['skills']
+    valid_moves = enumerate(moves, 1)
+    print("\n***\nValid Moves:")
+    for count, value in valid_moves:
+        print(str(count) + ":", value)
+    print(f"\n{char['name']}'s current HP:, {char['health']}\n"
+          f"{enemy['name']}'s current HP: {enemy['health']} \n")
 
 
 def validate_move(action, char, enemy):
