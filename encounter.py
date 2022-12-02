@@ -133,9 +133,7 @@ def execute_glowup_protocol(char, check):
               f"Level: {char['level']} -> {char['level'] + 1}"
               )
         scale_values(char)
-
-
-    time.sleep(0.25)
+        time.sleep(0.25)
     return char
 
 
