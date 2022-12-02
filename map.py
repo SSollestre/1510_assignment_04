@@ -6,62 +6,62 @@ import encounter
 
 
 class Map:
-    def __init__(self, height, width, player_x, player_y, paths):
+    def __init__(self, height, width, player_row, player_column, paths):
         self.height = height
         self.width = width
-        self.x = player_x
-        self.y = player_y
+        self.row = player_row
+        self.column = player_column
         self.paths = paths
 
     def move(self, direction):
-        if direction == "n":
-            if ((self.x, self.y - 1), (self.x, self.y)) not in self.paths:
+        if direction == "w":
+            if ((self.row, self.column - 1), (self.row, self.column)) not in self.paths:
                 print("Cannot go north")
             else:
-                self.y -= 1
+                self.column -= 1
         if direction == "s":
-            if ((self.x, self.y), (self.x, self.y + 1)) not in self.paths:
+            if ((self.row, self.column), (self.row, self.column + 1)) not in self.paths:
                 print("Cannot go south")
             else:
-                self.y += 1
-        if direction == "e":
-            if ((self.x, self.y), (self.x + 1, self.y)) not in self.paths:
+                self.column += 1
+        if direction == "d":
+            if ((self.row, self.column), (self.row + 1, self.column)) not in self.paths:
                 print("Cannot go east")
             else:
-                self.x += 1
-        if direction == "w":
-            if ((self.x - 1, self.y), (self.x, self.y)) not in self.paths:
+                self.row += 1
+        if direction == "a":
+            if ((self.row - 1, self.column), (self.row, self.column)) not in self.paths:
                 print("Cannot go west")
             else:
-                self.x -= 1
+                self.row -= 1
 
     def print_map(self):
-        for y in range(0, self.height):
+        for column in range(0, self.height):
             # print the yth row of rooms
-            for x in range(0, self.width):
-                if self.x == x and self.y == y:
+            for row in range(0, self.width):
+                if self.row == row and self.column == column:
                     sys.stdout.write("[x]")  # this is the player's room
                 else:
                     sys.stdout.write("[ ]")  # empty room
                 # now see whether there's a path to the next room
-                if ((x, y), (x + 1, y)) in self.paths:
+                if ((row, column), (row + 1, column)) in self.paths:
                     sys.stdout.write("-")
                 else:
                     sys.stdout.write(" ")
             # now that we've written the rooms, draw paths to next row
             print('')  # newline
-            for x in range(0, self.width):
+            for row in range(0, self.width):
                 sys.stdout.write(" ")  # spaces for above room
-                if ((x, y), (x, y + 1)) in self.paths:
+                if ((row, column), (row, column + 1)) in self.paths:
                     sys.stdout.write("|  ")
                 else:
                     sys.stdout.write("   ")
             print('')
 
     def print_scenario(self):
-        x = self.x
-        y = self.y
-        print(f'Current location {x, y}\n{scenario[(self.x, self.y)]}')
+        row = self.row
+        column = self.column
+        print(f'Current location {row, column}\n{scenario[(self.row, self.column)]}')
 
 
 scenario = {
@@ -362,7 +362,6 @@ paths = [((0, 0), (0, 1)),
          ((9, 8), (9, 9))]
 m = Map(10, 10, 0, 0, paths)
 
-
 def chance_encounter():
     number = random.randint(0, 10)
     for char["level"] in range(0, 4):
@@ -377,12 +376,11 @@ def chance_encounter():
 def main():
     character = encounter.make_character()
     while True:
-        m.print_map()
-        m.print_scenario()
-        direction = input("What direction do you want to move? [n/e/s/w] ")
+        direction = input("What direction do you want to move? [w/d/s/a] ")
         m.move(direction)
+        m.print_scenario()
         encounter.execute_glowup_protocol(character)
-        valid_moves = enumerate(["Display character information", "Start encounter"], 1)
+        valid_moves = enumerate(["Display character information", "Start encounter", "Display Map"], 1)
         print("Actions available:\n")
         for count, value in valid_moves:
             print(str(count) + ":", value)
@@ -392,6 +390,8 @@ def main():
             encounter.display_character_info(character)
         elif move == '2':
             encounter.execute_challenge_protocol(character)
+        elif move == '3':
+            m.print_map()
         elif move == 'q':
             break
 
