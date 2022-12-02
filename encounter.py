@@ -150,14 +150,15 @@ def execute_challenge_protocol(char):
         print("\n***\nValid Moves:")
         for count, value in valid_moves:
             print(str(count) + ":", value)
-        print("\n" + char['name'], "current HP:", char["health"])
-        print(enemy['name'], "current HP:", str(enemy["health"]) + '\n')
+        print(f"\n{char['name']}'s current HP:, {char['health']}")
+        print(f"{enemy['name']}'s current HP: {enemy['health']} \n")
         action = input("Please enter an action:")
         if action == '1':
             char['skills']["Basic Attack"](char, enemy)
         if action == '2':
             if "Double Strike" not in char["skills"]:
                 print("You do not know that move")
+                continue
             else:
                 print(char['name'], "uses", list(char['skills'].keys())[1])
                 char['skills']["Double Strike"](char, enemy)
