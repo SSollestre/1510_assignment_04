@@ -106,13 +106,13 @@ def execute_glowup_protocol(char):
         print(f"{char['name']} has leveled up!\n\nNew Stats:\n")
         time.sleep(0.25)
         print(
-              f"Name: {char['name']}\n"
-              f"Health: {char['max_health']} -> {char['max_health'] * 1.5}\n"
-              f"Strength: {char['strength']} -> {char['strength'] * 1.5}\n"
-              f"Defense: {char['defense']} -> {char['defense'] * 1.5}\n"
-              f"Dexterity: {char['dexterity']} -> {char['dexterity'] * 1.5}\n"
-              f"Level: {char['level']} -> {char['level'] + 1}"
-              )
+            f"Name: {char['name']}\n"
+            f"Health: {char['max_health']} -> {char['max_health'] * 1.5}\n"
+            f"Strength: {char['strength']} -> {char['strength'] * 1.5}\n"
+            f"Defense: {char['defense']} -> {char['defense'] * 1.5}\n"
+            f"Dexterity: {char['dexterity']} -> {char['dexterity'] * 1.5}\n"
+            f"Level: {char['level']} -> {char['level'] + 1}"
+        )
         scale_values(char)
         time.sleep(0.25)
     return char
@@ -173,7 +173,6 @@ def display_combat_menu(char, enemy):
         print(str(count) + ":", value)
     print(f"\n{char['name']}'s current HP: {char['health']}\n"
           f"{enemy['name']}'s current HP: {enemy['health']} \n")
-
 
 
 def validate_move(action, char, enemy):

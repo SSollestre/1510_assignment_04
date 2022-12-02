@@ -366,13 +366,14 @@ m = Map(10, 10, 0, 0, paths)
 
 def chance_encounter(char):
     number = random.randint(0, 10)
-    for char["level"] in range(0, 4):
-        if char["level"] == 1 and number >= 5:
-            encounter.execute_challenge_protocol(char)
-        elif char["level"] == 2 and number >= 5:
-            encounter.execute_challenge_protocol(char)
-        else:
-            encounter.execute_challenge_protocol(char)
+    if char["level"] == 1 and number >= 2:
+        encounter.execute_challenge_protocol(char)
+    elif char["level"] == 2 and number >= 5:
+        encounter.execute_challenge_protocol(char)
+    elif char["level"] == 3 and number >= 8:
+        encounter.execute_challenge_protocol(char)
+    else:
+        print("There are no enemies nearby.")
 
 
 def main():
