@@ -2,7 +2,9 @@
 Emily Tran        A00990221
 Sean Sollestre    A01333807
 """
-
+import title_screen
+import map
+import encounter
 
 def game(): # called from main
     rows = 5

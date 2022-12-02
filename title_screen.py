@@ -8,7 +8,7 @@ import os
 def title_screen_selections():
     option = input('>')
     if option.lower() == 'play':
-        start_game()
+        return
     elif option.lower() == 'help':
         help_menu()
     elif option.lower() == 'quit':
@@ -17,7 +17,7 @@ def title_screen_selections():
         print('Please enter a valid command.')
         option = input('>')
         if option.lower() == 'play':
-            start_game()
+            return
         elif option.lower() == 'help':
             help_menu()
         elif option.lower() == 'quit':
@@ -46,6 +46,7 @@ def help_menu():
     print('-Good luck and Have fun!')
     title_screen_selections()
 
+
 def end_screen():
     print('##################################')
     print('# Thank you for Playing our DEMO #')
@@ -53,7 +54,9 @@ def end_screen():
     print('##################################')
     title_screen_selections()
 
+
 def main():
+    pass
 
 
 if __name__ == "__main__":

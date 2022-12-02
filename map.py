@@ -3,6 +3,7 @@
 import random
 import sys
 import encounter
+import title_screen
 
 
 class Map:
@@ -363,18 +364,19 @@ paths = [((0, 0), (0, 1)),
 m = Map(10, 10, 0, 0, paths)
 
 
-def chance_encounter():
+def chance_encounter(char):
     number = random.randint(0, 10)
     for char["level"] in range(0, 4):
         if char["level"] == 1 and number >= 5:
-            execute_challenge_protocol(char)
+            encounter.execute_challenge_protocol(char)
         elif char["level"] == 2 and number >= 5:
-            execute_challenge_protocol(char)
+            encounter.execute_challenge_protocol(char)
         else:
-            execute_challenge_protocol(char)
+            encounter.execute_challenge_protocol(char)
 
 
 def main():
+    title_screen.title_screen()
     character = encounter.make_character()
     while True:
         directions = ['w', 'a', 's', 'd']
@@ -397,6 +399,7 @@ def main():
             break
         elif move in directions:
             m.move(move)
+            chance_encounter(character)
 
 
 if __name__ == "__main__":
