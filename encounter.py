@@ -142,6 +142,7 @@ def execute_challenge_protocol(char):
         display_combat_menu(char, enemy)
         action = input("Please enter an action:")
         if action == '0':
+            print("You make a break for it!")
             break
         if not validate_move(action, char, enemy):
             continue
