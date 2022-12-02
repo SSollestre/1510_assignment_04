@@ -199,7 +199,7 @@ def main():
     while not achieved_goal and character["health"] > 0:
         execute_glowup_protocol(character)
         valid_moves = enumerate(["Display character information", "Start encounter"], 1)
-        print("Actions available:\n")
+        print("***\nActions available:\n")
         for count, value in valid_moves:
             print(str(count) + ":", value)
         print("q: Quit")
