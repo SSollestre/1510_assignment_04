@@ -9,8 +9,9 @@ import title_screen
 
 def make_character():
     """
+    Generate a dictionary for a player character.
 
-    :return:
+    :return: a dictionary representing a character's attributes
     """
     name = input("What is your name?\n")
     character_board = {
