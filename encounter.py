@@ -118,6 +118,64 @@ def double_strike(char, enemy):
     :postcondition: the enemy dictionary's health attribute is reduced based on
                     strength and defense statistics
     :return: the enemy dictionary with reduced health
+    >>> character =  {
+    ... "name": "dummy",
+    ... "max_health": 50,
+    ... "health": 50,
+    ... "strength": 10,
+    ... "defense": 10,
+    ... "dexterity": 10,
+    ... "level": 1,
+    ... "exp": 0,
+    ... "goal": False,
+    ... "skills": {
+    ...    "Basic Attack": attack
+    ...  }
+    ... }
+    >>> target = {
+    ... "name": "Bandit",
+    ... "health": 50,
+    ... "strength": 10,
+    ... "defense": 10,
+    ... "dexterity": 10,
+    ...  "level": 1,
+    ...    "goal": False,
+    ...   "exp": 25
+    ...  }
+    >>> double_strike(character, target)
+    dummy strikes Bandit for 5.625 damage!
+    dummy strikes Bandit for 5.625 damage!
+    {'name': 'Bandit', 'health': 38.75, 'strength': 10, 'defense': 10, 'dexterity': 10, 'level': 1, \
+'goal': False, 'exp': 25}
+    >>> character =  {
+    ... "name": "dummy",
+    ... "max_health": 50,
+    ... "health": 50,
+    ... "strength": 15,
+    ... "defense": 10,
+    ... "dexterity": 10,
+    ... "level": 1,
+    ... "exp": 0,
+    ... "goal": False,
+    ... "skills": {
+    ...    "Basic Attack": attack
+    ...  }
+    ... }
+    >>> target = {
+    ... "name": "Bandit",
+    ... "health": 50,
+    ... "strength": 10,
+    ... "defense": 10,
+    ... "dexterity": 10,
+    ...  "level": 1,
+    ...    "goal": False,
+    ...   "exp": 25
+    ...  }
+    >>> double_strike(character, target)
+    dummy strikes Bandit for 9.375 damage!
+    dummy strikes Bandit for 9.375 damage!
+    {'name': 'Bandit', 'health': 31.25, 'strength': 10, 'defense': 10, 'dexterity': 10, 'level': 1, 'goal': False,\
+ 'exp': 25}
     """
     damage = (char["strength"] - (0.25 * enemy["defense"])) * 0.75
     enemy["health"] -= damage * 2
