@@ -253,6 +253,16 @@ def display_combat_menu(char, enemy):
 
 
 def validate_move(action, char, enemy):
+    """
+    Determine if action is a valid move or not.
+
+    Execute the action by invoking a character skill function if the move is valid.
+
+    :param action: a string representing user selected action
+    :param char: a character dictionary
+    :param enemy: an enemy dictionary
+    :return: modified character and enemy dictionaries based on action value
+    """
     moves = list(map(str, range(1, len(char['skills']) + 1)))
     if action not in moves:
         print("You do not know that move")
@@ -268,13 +278,25 @@ def validate_move(action, char, enemy):
     return char, enemy
 
 
-def check_if_goal_attained(char):
+def check_if_goal_attained(char): #
+    """
+    Check if goal attribute in char is True.
+
+    :param char: a character dictionary
+    :return: True if character goal attribute is True, False if not.
+    """
     if char["goal"]:
         return True
     return False
 
 
-def chance_encounter(char):
+def chance_encounter(char): #
+    """
+
+
+    :param char:
+    :return:
+    """
     number = random.randint(0, 10)
     if char["level"] == 1 and number <= 2:
         execute_challenge_protocol(char)
