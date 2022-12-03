@@ -4,6 +4,7 @@ Sean Sollestre    A01333807
 """
 import time
 import random
+import title_screen
 
 
 def make_character():
@@ -148,6 +149,10 @@ def execute_challenge_protocol(char):
         if not validate_move(action, char, enemy):
             continue
         character_enemy_interaction(char, enemy)
+        if char["health"] <= 0:
+            char["exp"] -= enemy["exp"]
+            print(f"\n{char['name']} has been defeated...\n\n")
+            return char
     print("\n***\nCombat has ended\n***\n")
     char["health"] = char["max_health"]
     char["goal"] = enemy["goal"]
@@ -161,10 +166,6 @@ def character_enemy_interaction(char, enemy):
         return
     attack(enemy, char)
     time.sleep(0.25)
-    if char["health"] <= 0:
-        char["exp"] -= enemy["exp"]
-        print(f"\n{char['name']} has been defeated...\n\n")
-        return char
 
 
 def display_combat_menu(char, enemy):
@@ -212,27 +213,27 @@ def chance_encounter(char):
 
 def main():
     """
-    Drives program.
+    Drive program.
     """
-    # character = make_character()
-    # achieved_goal = False
-    # while not achieved_goal and character["health"] > 0:
-    #     execute_glowup_protocol(character)
-    #     valid_moves = enumerate(["Display character information", "Pick a fight"], 1)
-    #     print("***\nActions available:\n")
-    #     for count, value in valid_moves:
-    #         print(str(count) + ":", value)
-    #     print("q: Quit")
-    #     move = input("\nPlease enter an action:")
-    #     if move == '1':
-    #         display_character_info(character)
-    #     elif move == '2':
-    #         execute_challenge_protocol(character)
-    #     elif move == 'q':
-    #         break
-    #     achieved_goal = check_if_goal_attained(character)
-    # if achieved_goal:
-    #     title_screen.end_screen()
+    character = make_character()
+    achieved_goal = False
+    while not achieved_goal and character["health"] > 0:
+        execute_glowup_protocol(character)
+        valid_moves = enumerate(["Display character information", "Pick a fight"], 1)
+        print("***\nActions available:\n")
+        for count, value in valid_moves:
+            print(str(count) + ":", value)
+        print("q: Quit")
+        move = input("\nPlease enter an action:")
+        if move == '1':
+            display_character_info(character)
+        elif move == '2':
+            execute_challenge_protocol(character)
+        elif move == 'q':
+            break
+        achieved_goal = check_if_goal_attained(character)
+    if achieved_goal:
+        title_screen.end_screen()
 
 
 if __name__ == "__main__":
