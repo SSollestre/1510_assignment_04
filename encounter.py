@@ -9,9 +9,9 @@ import title_screen
 
 def make_character():
     """
-    Generate a dictionary for a player character.
+    Generate a character sheet as dictionary for a player character.
 
-    :return: a dictionary representing a character's attributes
+    :return: a dictionary representing a character's statistics as attributes
     """
     name = input("What is your name?\n")
     character_board = {
@@ -37,6 +37,10 @@ def attack(char, enemy):
 
     :param char: a character dictionary
     :param enemy: an enemy dictionary
+    :precondition: char must be a dictionary representing a character
+    :precondition: char must be a dictionary representing a character
+    :postcondition: the enemy dictionary's health attribute is reduced based on
+                    strength and defense statistics
     :return: the enemy dictionary with reduced health
     """
     damage = char["strength"] - (0.25 * enemy["defense"])
