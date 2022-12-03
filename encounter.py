@@ -249,6 +249,10 @@ def character_enemy_interaction(char, enemy):
 
     :param char: a character dictionary
     :param enemy: an enemy dictionary
+    :precondition: char must be a dictionary representing a character
+    :precondition: char must be a dictionary representing a target
+    :postcondition: decrease character health values  if enemy health value is above 0
+    :return: a character dictionary with decreased health values
     """
     if enemy["health"] <= 0:
         char["exp"] += enemy["exp"]
@@ -256,6 +260,7 @@ def character_enemy_interaction(char, enemy):
         return
     attack(enemy, char)
     time.sleep(0.25)
+    return char
 
 
 def display_combat_menu(char, enemy):
