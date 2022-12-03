@@ -4,7 +4,7 @@ Sean Sollestre    A01333807
 """
 import time
 import random
-import title_screen
+from title_screen import end_screen
 
 
 def make_character():
@@ -369,7 +369,7 @@ def main():
             break
         achieved_goal = check_if_goal_attained(character)
     if achieved_goal:
-        title_screen.end_screen()
+        end_screen()
 
 
 if __name__ == "__main__":
