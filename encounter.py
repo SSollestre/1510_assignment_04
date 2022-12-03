@@ -163,6 +163,9 @@ def execute_glowup_protocol(char):
     Call helper function to increase character attributes.
 
     :param char: a character dictionary
+    :precondition: char must be a dictionary representing a character
+    :postcondition: print a character sheet with increased statistics
+    :postcondition: return character dictionary with increased statistics using helper function
     :return: a character dictionary with increased attributes
     """
     if char["exp"] >= 50:
