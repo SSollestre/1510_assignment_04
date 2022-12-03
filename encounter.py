@@ -264,7 +264,7 @@ def character_enemy_interaction(char, enemy):
     return char
 
 
-def display_combat_menu(char, enemy):  #
+def display_combat_menu(char, enemy):
     """
     Display the combat menu.
 
