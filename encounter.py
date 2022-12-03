@@ -266,6 +266,56 @@ def display_character_info(char):
     :param char: a character dictionary
     :precondition: char must be a dictionary representing a character
     :postcondition: print a character sheet based on information on char dictionary
+    >>> character =  {
+    ... "name": "dummy",
+    ... "max_health": 50,
+    ... "health": 50,
+    ... "strength": 15,
+    ... "defense": 10,
+    ... "dexterity": 10,
+    ... "level": 1,
+    ... "exp": 0,
+    ... "goal": False,
+    ... "skills": {
+    ...    "Basic Attack": attack
+    ...  }
+    ... }
+    >>> display_character_info(character)
+    <BLANKLINE>
+    Character information:
+    Name: dummy
+    Health: 50
+    Strength: 15
+    Defense: 10
+    Dexterity: 10
+    Level: 1
+    Skills: ['Basic Attack']
+    <BLANKLINE>
+    >>> character =  {
+    ... "name": "Big Man",
+    ... "max_health": 70,
+    ... "health": 100,
+    ... "strength": 5,
+    ... "defense": 20,
+    ... "dexterity": 0,
+    ... "level": 1,
+    ... "exp": 25,
+    ... "goal": False,
+    ... "skills": {
+    ...    "Basic Attack": attack
+    ...  }
+    ... }
+    >>> display_character_info(character)
+    <BLANKLINE>
+    Character information:
+    Name: Big Man
+    Health: 70
+    Strength: 5
+    Defense: 20
+    Dexterity: 0
+    Level: 1
+    Skills: ['Basic Attack']
+    <BLANKLINE>
     """
     print("\nCharacter information:\n"
           f"Name: {char['name']}\n"
