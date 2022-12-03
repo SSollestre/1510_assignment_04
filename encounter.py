@@ -293,6 +293,10 @@ def validate_move(action, char, enemy):
     :param action: a string representing user selected action
     :param char: a character dictionary
     :param enemy: an enemy dictionary
+    :precondition: action must be a string representing user selected action
+    :precondition: char must be a dictionary representing a character
+    :precondition: char must be a dictionary representing a target
+    :postcondition: modify character and enemy dictionaries based on action value
     :return: modified character and enemy dictionaries based on action value
     """
     moves = list(map(str, range(1, len(char['skills']) + 1)))
