@@ -97,12 +97,21 @@ class Map:
 
     def __str__(self):
         """
+        return Map class object information in a formatted string.
 
-        :return:
+        :return: a string
         """
-        return f"The map dimensions are {self.height} by {self.width}.\nThe player coordinates are ({self.column},{self.row}).\nThe paths available are {self.paths} "
+        return f"The map dimensions are {self.height} by {self.width}.\n\
+The player coordinates are ({self.column},{self.row}).\n\
+The paths available are {self.paths} "
 
     def __repr__(self):
+        """
+        return a string representing Map class object.
+
+        :return: a string
+        """
+        return f"Map({self.height}, {self.width}, {self.column}, {self.row}, {self.paths})"
 
 
 def main():
@@ -124,7 +133,7 @@ def main():
     create_map = Map(3, 3, 1, 0, paths)
 
     print(create_map)
-    create_map
+    print(repr(create_map))
 
     while True:
         directions = ['w', 'a', 's', 'd']
