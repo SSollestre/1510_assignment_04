@@ -79,6 +79,12 @@ def guard(char, enemy):
 
 
 def return_entity(level):
+    """
+    Generates an enemy dictionary based on level.
+
+    :param level: an integer representing a level attribute
+    :return: an enemy dictionary
+    """
     enemies = [
         {
             "name": "Bandit",
