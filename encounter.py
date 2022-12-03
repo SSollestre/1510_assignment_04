@@ -143,6 +143,8 @@ def display_character_info(char):
     Display character information.
 
     :param char: a character dictionary
+    :precondition: char must be a dictionary representing a character
+    :postcondition: print a character sheet based on information on char dictionary
     """
     print("\nCharacter information:\n"
           f"Name: {char['name']}\n"
