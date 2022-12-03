@@ -125,6 +125,11 @@ def return_entity(level):
 
 
 def display_character_info(char):
+    """
+    Display character information.
+
+    :param char: a character dictionary
+    """
     print("\nCharacter information:\n"
           f"Name: {char['name']}\n"
           f"Health: {char['max_health']}\n"
