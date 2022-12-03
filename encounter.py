@@ -213,6 +213,12 @@ def return_entity(level):
     :precondition: level must be an integer representing a level attribute
     :postcondition: select which enemy to return based on level passed as argument
     :return: an enemy dictionary based on level
+    >>> return_entity(1)
+    {'name': 'Bandit', 'health': 50, 'strength': 10, 'defense': 10, 'dexterity': 10, 'level': 1,\
+ 'goal': False, 'exp': 25}
+    >>> return_entity(2)
+    {'name': 'Bandit Lieutenant', 'health': 50, 'strength': 30, 'defense': 10, 'dexterity': 10,\
+ 'level': 2, 'goal': False, 'exp': 25}
     """
     enemies = [
         {
