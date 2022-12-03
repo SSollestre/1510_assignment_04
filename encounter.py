@@ -189,6 +189,16 @@ def scale_values(char):
 
 
 def execute_challenge_protocol(char):
+    """
+    Invoke an encounter with an enemy.
+
+    Call helper functions: display_combat_menu
+                           validate_move
+                           character_enemy_interaction
+
+    :param char: a character dictionary
+    :return: a character dictionary with modified attributes
+    """
     enemy = return_entity(char["level"])
     print(f"\n***\nCombat has initiated\n***\n{enemy['name']} glares at you menacingly.")
     while enemy["health"] > 0 and char["health"] > 0:
