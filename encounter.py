@@ -141,6 +141,14 @@ def display_character_info(char):
 
 
 def execute_glowup_protocol(char):
+    """
+    Display character increases in stats on level-up.
+
+    Call helper function to increase character attributes.
+
+    :param char: a character dictionary
+    :return: a character dictionary with increased attributes
+    """
     if char["exp"] >= 50:
         time.sleep(0.25)
         print(f"{char['name']} has leveled up!\n\nNew Stats:\n")
