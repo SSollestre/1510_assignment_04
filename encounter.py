@@ -8,6 +8,10 @@ import title_screen
 
 
 def make_character():
+    """
+
+    :return:
+    """
     name = input("What is your name?\n")
     character_board = {
         "name": name,
@@ -121,11 +125,10 @@ def execute_glowup_protocol(char):
 
 
 def scale_values(char):
-    char["max_health"] *= 1.5
-    char["health"] *= 1.5
-    char["strength"] *= 1.5
-    char["defense"] *= 1.5
-    char["dexterity"] *= 1.5
+    char_stats = [integer_key for integer_key in char.keys() if type(char[integer_key]) == int and
+                  integer_key != 'level']
+    for item in char_stats:
+        char[item] *= 1.5
     char["level"] = char["level"] + 1
     char["exp"] = 0
     if char['level'] == 2:
