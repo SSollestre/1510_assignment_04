@@ -7,7 +7,7 @@ import map
 import encounter
 
 
-def game():  # called from main
+def game():
     """
 
     :return:
@@ -33,6 +33,7 @@ def game():  # called from main
         elif move == '3':
             map.m.print_map()
         elif move == 'q':
+            title_screen.end_screen()
             break
         elif move in directions:
             map.m.move(move)
@@ -47,27 +48,6 @@ def main():
 
     """
     game()
-    # rows = 5
-    # columns = 5
-    # board = make_board(rows, columns)
-    # character = make_character("Player name")
-    # achieved_goal = False
-    # while not achieved_goal:
-    #     describe_current_location(board, character)
-    #     direction = get_user_choice()
-    #     valid_move = validate_move(board, character, direction)
-    #     if valid_move:
-    #         move_character(character)
-    #         describe_current_location(board, character)
-    #         there_is_a_challenge = check_for_challenges()
-    #     if there_is_a_challenge:
-    #         execute_challenge_protocol(character)
-    #     if character_has_leveled():
-    #         execute_glow_up_protocol()
-    #         achieved_goal = check_if_goal_attained(board, character)
-    #     else:
-    #         print("A wall blocks your path.")
-    # print("you have successfully escaped")
 
 
 if __name__ == "__main__":

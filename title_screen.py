@@ -1,46 +1,41 @@
 """
-
+Emily Tran        A00990221
+Sean Sollestre    A01333807
 """
 import sys
-import os
 
 
 def title_screen_selections():
-    option = input('>')
-    if option.lower() == 'play':
-        return
-    elif option.lower() == 'help':
-        help_menu()
-    elif option.lower() == 'quit':
-        sys.exit()
-    while option.lower() not in ['play', 'quit']:
-        print('Please enter a valid command.')
-        option = input('>')
-        if option.lower() == 'play':
+    while True:
+        option = input('>').lower()
+        if option not in ['play', 'quit', 'help']:
+            print('Please enter a valid command.')
+            continue
+        if option == 'play':
             return
-        elif option.lower() == 'help':
+        elif option == 'help':
             help_menu()
-        elif option.lower() == 'quit':
+        elif option == 'quit':
+            end_screen()
             sys.exit()
 
 
 def title_screen():
-    os.system('clear')
-    print('############################')
-    print('# Welcome to the Text RPG! #')
-    print('############################')
-    print('           -Play-           ')
-    print('           -Help-           ')
-    print('           -Quit-           ')
-    print('    Made by Sean & Emily    ')
+    print('##################################')
+    print('#    Welcome to the Text RPG!    #')
+    print('#       Made by Sean & Emily     #')
+    print('##################################')
+    print('              -Play-              ')
+    print('              -Help-              ')
+    print('              -Quit-              ')
     title_screen_selections()
 
 
 def help_menu():
-    print('############################')
-    print('# Welcome to the Text RPG! #')
-    print('############################')
-    print('-Use w(up), a(left), s(down), d(right) to move')
+    print('##################################')
+    print('#    Welcome to the Text RPG!    #')
+    print('##################################')
+    print('-Use w, a, s, d to move')
     print('-Type your commands to do them')
     print('-Use look to inspect something')
     print('-Good luck and Have fun!')
@@ -52,12 +47,12 @@ def end_screen():
     print('# Thank you for Playing our DEMO #')
     print('#      Stay tuned for more       #')
     print('##################################')
-    title_screen_selections()
 
 
 def main():
     """
     """
+    title_screen()
 
 
 if __name__ == "__main__":

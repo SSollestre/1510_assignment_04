@@ -1,9 +1,8 @@
 """
+Emily Tran        A00990221
+Sean Sollestre    A01333807
 """
-import random
 import sys
-import encounter
-import title_screen
 
 
 class Map:
@@ -364,43 +363,17 @@ paths = [((0, 0), (0, 1)),
 m = Map(10, 10, 0, 0, paths)
 
 
-# def chance_encounter(char):
-#     number = random.randint(0, 10)
-#     if char["level"] == 1 and number <= 2:
-#         encounter.execute_challenge_protocol(char)
-#     elif char["level"] == 2 and number <= 5:
-#         encounter.execute_challenge_protocol(char)
-#     elif char["level"] == 3 and number <= 8:
-#         encounter.execute_challenge_protocol(char)
-#     else:
-#         print("Nobody notices you.")
-
-
 def main():
-    title_screen.title_screen()
-    character = encounter.make_character()
+    """
+
+    """
     while True:
         directions = ['w', 'a', 's', 'd']
-        # commands = ['1','2','3','q']
         m.print_scenario()
-        encounter.execute_glowup_protocol(character)
-        valid_moves = enumerate(["Display character information", "Pick a fight", "Display Map"], 1)
-        print("Actions available:\n")
-        for count, value in valid_moves:
-            print(str(count) + ":", value)
-        print("q: Quit")
         move = input("\nPlease enter an action or direction [w, a, s, d]:")
-        if move == '1':
-            encounter.display_character_info(character)
-        elif move == '2':
-            encounter.execute_challenge_protocol(character)
-        elif move == '3':
-            m.print_map()
-        elif move == 'q':
-            break
-        elif move in directions:
+        if move in directions:
             m.move(move)
-            chance_encounter(character)
+            m.print_map()
 
 
 if __name__ == "__main__":
