@@ -333,6 +333,8 @@ def chance_encounter(char):
     Determine whether run execute challenge protocol.
 
     :param char: char must be a character dictionary
+    :precondition: char must be a dictionary representing a character
+    :postcondition: determine if execute challenge protocol executes
     """
     number = random.randint(0, 10)
     if char["level"] == 1 and number <= 2:
