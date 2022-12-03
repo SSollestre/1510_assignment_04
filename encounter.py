@@ -292,10 +292,9 @@ def check_if_goal_attained(char):
 
 def chance_encounter(char):
     """
+    Determine whether run execute challenge protocol.
 
-
-    :param char:
-    :return:
+    :param char: char must be a character dictionary
     """
     number = random.randint(0, 10)
     if char["level"] == 1 and number <= 2:
@@ -310,7 +309,7 @@ def chance_encounter(char):
 
 def main():
     """
-    Drive program.
+    Drive the program.
     """
     character = make_character()
     achieved_goal = False
