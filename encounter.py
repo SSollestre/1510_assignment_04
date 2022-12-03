@@ -290,7 +290,7 @@ def check_if_goal_attained(char):
     return False
 
 
-def chance_encounter(char): #
+def chance_encounter(char):
     """
 
 
