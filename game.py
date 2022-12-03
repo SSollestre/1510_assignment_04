@@ -2,14 +2,15 @@
 Emily Tran        A00990221
 Sean Sollestre    A01333807
 """
-import title_screen
-import map
-import encounter
+from title_screen import title_screen, end_screen
+from map import Map
+from encounter import make_character, display_character_info, execute_glowup_protocol, execute_challenge_protocol, \
+    chance_encounter, check_if_goal_attained
 import itertools
 import time
 
 
-def print_scenario(create_map):
+def print_scenario(create_map: Map):
     scenario = {
         (0, 0): 'You wake up in a dark damp cave. '
                 'You remember being knocked out. '
@@ -129,7 +130,7 @@ def print_scenario(create_map):
     print(f'Current location {row, column}\n{scenario[(create_map.row, create_map.column)]}')
 
 
-def feet(seconds):
+def feet(seconds: int):
     """Show an animated spinner while we sleep."""
     walk = itertools.cycle(['  __ \n'
                             ' (  )\n'
@@ -335,15 +336,15 @@ def game():
              ((9, 6), (9, 7)),
              ((9, 7), (9, 8)),
              ((9, 8), (9, 9))]
-    title_screen.title_screen()
-    character = encounter.make_character()
+    title_screen()
+    character = make_character()
     achieved_goal = False
-    create_map = map.Map(10, 10, 0, 0, paths)
+    create_map = Map(10, 10, 0, 0, paths)
     while not achieved_goal and character["health"] > 0:
         directions = ['w', 'a', 's', 'd']
         commands = ['1', '2', '3', 'q']
         print_scenario(create_map)
-        encounter.execute_glowup_protocol(character)
+        execute_glowup_protocol(character)
         valid_moves = enumerate(["Display character information", "Pick a fight", "Display Map"], 1)
         print("Actions available:\n")
         for count, value in valid_moves:
@@ -354,21 +355,21 @@ def game():
             print("\n***\nThat is not a valid command.\n***\n")
             time.sleep(2)
         if move == '1':
-            encounter.display_character_info(character)
+            display_character_info(character)
         elif move == '2':
-            encounter.execute_challenge_protocol(character)
+            execute_challenge_protocol(character)
         elif move == '3':
             create_map.print_map()
         elif move == 'q':
-            title_screen.end_screen()
+            end_screen()
             break
         elif move in directions:
             feet(1)
             create_map.move(move)
-            encounter.chance_encounter(character)
-        achieved_goal = encounter.check_if_goal_attained(character)
+            chance_encounter(character)
+        achieved_goal = check_if_goal_attained(character)
     if achieved_goal:
-        title_screen.end_screen()
+        end_screen()
 
 
 def main():
