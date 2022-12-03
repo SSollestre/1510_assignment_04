@@ -64,8 +64,15 @@ def double_strike(char, enemy):
 
 
 def guard(char, enemy):
+    """
+    Restore character health.
+
+    :param char: a character dictionary
+    :param enemy: an enemy dictionary
+    :return: the character dictionary with increased health
+    """
     time.sleep(0.25)
-    print(char["name"], "braces themselves")
+    print(f"{char['name']} raises their guard.")
     damage = (enemy["strength"] - (0.25 * char["defense"])) * 1.5
     char["health"] += damage
     return char
