@@ -218,6 +218,8 @@ def execute_challenge_protocol(char):
                            character_enemy_interaction
 
     :param char: a character dictionary
+    :precondition: char must be a dictionary representing a character
+    :postcondition: modify character dictionary
     :return: a character dictionary with modified attributes
     """
     enemy = return_entity(char["level"])
