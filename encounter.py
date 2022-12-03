@@ -445,7 +445,8 @@ def display_combat_menu(char, enemy):
     :param enemy: an enemy dictionary
     :precondition: char must be a dictionary representing a character
     :precondition: char must be a dictionary representing a target
-    :postcondition: print the valid user inputs and
+    :postcondition: print the valid user inputs
+    :postcondition: print current character and enemy health values
     """
     print("***\nValid Moves:")
     print("0: Flee")
