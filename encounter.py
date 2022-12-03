@@ -38,7 +38,7 @@ def attack(char, enemy):
     :param char: a character dictionary
     :param enemy: an enemy dictionary
     :precondition: char must be a dictionary representing a character
-    :precondition: char must be a dictionary representing a character
+    :precondition: char must be a dictionary representing a target
     :postcondition: the enemy dictionary's health attribute is reduced based on
                     strength and defense statistics
     :return: the enemy dictionary with reduced health
@@ -57,7 +57,7 @@ def double_strike(char, enemy):
     :param char: a character dictionary
     :param enemy: an enemy dictionary
     :precondition: char must be a dictionary representing a character
-    :precondition: char must be a dictionary representing a character
+    :precondition: enemy must be a dictionary representing a target
     :postcondition: the enemy dictionary's health attribute is reduced based on
                     strength and defense statistics
     :return: the enemy dictionary with reduced health
@@ -77,6 +77,8 @@ def guard(char, enemy):
 
     :param char: a character dictionary
     :param enemy: an enemy dictionary
+    :precondition: char must be a dictionary representing a character
+    :precondition: char must be a dictionary representing a target
     :return: the character dictionary with increased health
     """
     time.sleep(0.25)
