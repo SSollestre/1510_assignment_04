@@ -221,6 +221,12 @@ def execute_challenge_protocol(char):
 
 
 def character_enemy_interaction(char, enemy):
+    """
+    Execute enemy dictionary actions against character dictionary.
+
+    :param char: a character dictionary
+    :param enemy: an enemy dictionary
+    """
     if enemy["health"] <= 0:
         char["exp"] += enemy["exp"]
         print(f"\n{enemy['name']} has been defeated!\n")
