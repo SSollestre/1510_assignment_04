@@ -6,7 +6,18 @@ import sys
 
 
 class Map:
+    """
+
+    """
     def __init__(self, height: int, width: int, player_row: int, player_column: int, paths: list):
+        """
+
+        :param height:
+        :param width:
+        :param player_row:
+        :param player_column:
+        :param paths:
+        """
         self.height = height
         self.width = width
         self.row = player_row
@@ -14,6 +25,11 @@ class Map:
         self.paths = paths
 
     def move(self, direction: str):
+        """
+
+        :param direction:
+        :return:
+        """
         if direction == "w":
             if ((self.row, self.column - 1), (self.row, self.column)) not in self.paths:
                 print("Cannot go north")
@@ -36,6 +52,10 @@ class Map:
                 self.row -= 1
 
     def print_map(self):
+        """
+
+        :return:
+        """
         for column in range(0, self.height):
             # print the yth row of rooms
             for row in range(0, self.width):
@@ -57,6 +77,10 @@ class Map:
                 else:
                     sys.stdout.write("   ")
             print('')
+
+    def __str__(self):
+
+    def __repr__(self):
 
 
 def main():

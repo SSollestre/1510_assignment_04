@@ -7,7 +7,6 @@ import sys
 
 def title_screen_selections():
     """
-
     Title screen selections
     """
     while True:
@@ -26,7 +25,6 @@ def title_screen_selections():
 
 def title_screen():
     """
-
     Display title screen.
     """
     print('##################################')
@@ -41,7 +39,6 @@ def title_screen():
 
 def help_menu():
     """
-
     Display Help Menu.
     """
     print('##################################')
@@ -55,7 +52,6 @@ def help_menu():
 
 def end_screen():
     """
-
     Display End Screen
     """
     print('##################################')
