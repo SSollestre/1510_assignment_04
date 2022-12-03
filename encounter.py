@@ -32,6 +32,13 @@ def make_character():
 
 
 def attack(char, enemy):
+    """
+    Cause damage to an enemy.
+
+    :param char: a character dictionary
+    :param enemy: an enemy dictionary
+    :return: the enemy dictionary with reduced health
+    """
     damage = char["strength"] - (0.25 * enemy["defense"])
     enemy["health"] -= damage
     time.sleep(0.25)
