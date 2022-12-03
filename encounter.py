@@ -96,8 +96,8 @@ def return_entity(level):
 
     :param level: an integer representing a level attribute of a character
     :precondition: level must be an integer representing a level attribute
-    :postcondition:
-    :return: an enemy dictionary
+    :postcondition: select which enemy to return based on level passed as argument
+    :return: an enemy dictionary based on level
     """
     enemies = [
         {
