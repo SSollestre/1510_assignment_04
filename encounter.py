@@ -278,7 +278,7 @@ def validate_move(action, char, enemy):
     return char, enemy
 
 
-def check_if_goal_attained(char): #
+def check_if_goal_attained(char):
     """
     Check if goal attribute in char is True.
 
