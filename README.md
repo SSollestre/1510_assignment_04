@@ -21,14 +21,14 @@ I started assignment04 on November 23, 2022.
 
 | Element                           | Location         |
 |-----------------------------------|------------------|
-| tuples                            | map.py 68        |
-| list                              | map.py 183       |
+| tuples                            | game.py 15       |
+| list                              | game.py 168      |
 | dictionary or list comprehension  | encounter.py 130 |
 | selection using if statement      | encounter.py 202 |
-| repetition with for or while loop | game.py 29       |
-| membership operator (in)          | game.py 54       |
+| repetition with for or while loop | game.py 149      |
+| membership operator (in)          | game.py 355      |
 | range                             | map.py 39        |
-| itertools function                | game.py 16       |
+| itertools function                | game.py 136      |
 | enumerate function                | encounter.py 227 |
 | filter or map function            | encounter.py 186 |
 | random module                     | encounter.py 208 |

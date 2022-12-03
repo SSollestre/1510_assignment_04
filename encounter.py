@@ -2,7 +2,6 @@
 Emily Tran        A00990221
 Sean Sollestre    A01333807
 """
-import itertools
 import time
 import random
 import title_screen
