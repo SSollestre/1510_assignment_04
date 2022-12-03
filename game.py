@@ -154,7 +154,6 @@ def feet(seconds: int):
 def game():
     """
 
-    :return:
     """
     paths = [((0, 0), (0, 1)),
              ((0, 0), (1, 0)),
