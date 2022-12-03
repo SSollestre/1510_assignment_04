@@ -13,7 +13,7 @@ class Map:
         self.column = player_column
         self.paths = paths
 
-    def move(self, direction: [str]):
+    def move(self, direction: str):
         if direction == "w":
             if ((self.row, self.column - 1), (self.row, self.column)) not in self.paths:
                 print("Cannot go north")
@@ -63,18 +63,17 @@ def main():
     """
     Drive Program.
     """
-    paths = [((0, 0), (1, 0)), ((0, 0), (1, 0)), ((1, 0), (1, 1)), ((1, 1),
-                                                                    (2, 1)), ((1, 1), (1, 2)), ((0, 2), (1, 2)),
-             ((1, 2), (2, 2)),
-             ((0, 2), (0, 3)), ((0, 3), (1, 3)), ((1, 3), (2, 3)), ((2, 3),
-                                                                    (3, 3))]
-
-    create_map = Map(4, 4, 0, 0, paths)
-    directions = ['w', 'a', 's', 'd']
-    move = input("\nPlease enter an action or direction [w, a, s, d]:")
-    if move in directions:
-        create_map.move(move)
-        create_map.print_map()
+    while True:
+        paths = [((0, 0), (0, 1)),
+                 ((0, 0), (1, 0)),
+                 ((1, 0), (1, 1)),
+                 ((0, 1), (1, 1))]
+        create_map = Map(2, 2, 0, 0, paths)
+        directions = ['w', 'a', 's', 'd']
+        move = input("\nPlease enter an action or direction [w, a, s, d]:")
+        if move in directions:
+            create_map.move(move)
+            create_map.print_map()
 
 
 if __name__ == "__main__":
