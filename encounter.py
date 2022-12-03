@@ -319,6 +319,8 @@ def check_if_goal_attained(char):
     Check if goal attribute in char is True.
 
     :param char: a character dictionary
+    :precondition: char must be a dictionary representing a character
+    :postcondition: evaluate whether goal attribute is True or False
     :return: True if character goal attribute is True, False if not.
     """
     if char["goal"]:
