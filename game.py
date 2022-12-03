@@ -18,7 +18,7 @@ def game():
     achieved_goal = False
     while not achieved_goal and character["health"] > 0:
         directions = ['w', 'a', 's', 'd']
-        commands = ['1','2','3','q']
+        commands = ['1', '2', '3', 'q']
         map.m.print_scenario()
         encounter.execute_glowup_protocol(character)
         valid_moves = enumerate(["Display character information", "Pick a fight", "Display Map"], 1)
@@ -27,10 +27,10 @@ def game():
             print(str(count) + ":", value)
         print("q: Quit")
         move = input("\nPlease enter an action or direction [w, a, s, d]:")
-        if move not in directions or move not in commands:
-            print("\n***\nThat is not a valid command.\n***\n")
-            time.sleep(2)
-        elif move == '1':
+        # if move not in directions or move not in commands:
+        #     print("\n***\nThat is not a valid command.\n***\n")
+        #     time.sleep(2)
+        if move == '1':
             encounter.display_character_info(character)
         elif move == '2':
             encounter.execute_challenge_protocol(character)

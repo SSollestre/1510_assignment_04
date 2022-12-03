@@ -2,6 +2,7 @@
 Emily Tran        A00990221
 Sean Sollestre    A01333807
 """
+import itertools
 import time
 import random
 import title_screen
@@ -57,42 +58,65 @@ def guard(char, enemy):
 
 
 def return_entity(level):
-    bandit = {
-        "name": "Bandit",
-        "health": 50,
-        "strength": 10,
-        "defense": 10,
-        "dexterity": 10,
-        "level": 1,
-        "goal": False,
-        "exp": 25
-    }
+    enemies = [
+        {
+            "name": "Blue Bandit",
+            "health": 50,
+            "strength": 10,
+            "defense": 10,
+            "dexterity": 10,
+            "level": 1,
+            "goal": False,
+            "exp": 25
+        },
 
-    bandit_lieutenant = {
-        "name": "Bandit Lieutenant",
-        "health": 50,
-        "strength": 30,
-        "defense": 10,
-        "dexterity": 10,
-        "level": 2,
-        "goal": False,
-        "exp": 25
-    }
+        {
+            "name": "Red Bandit",
+            "health": 50,
+            "strength": 10,
+            "defense": 10,
+            "dexterity": 10,
+            "level": 1,
+            "goal": False,
+            "exp": 25
+        },
 
-    bandit_chief = {
-        "name": "Bandit Chief",
-        "health": 150,
-        "strength": 30,
-        "defense": 20,
-        "dexterity": 10,
-        "level": 3,
-        "goal": True,
-        "exp": 25
-    }
+        {
+            "name": "Blue Bandit Lieutenant",
+            "health": 50,
+            "strength": 30,
+            "defense": 10,
+            "dexterity": 10,
+            "level": 2,
+            "goal": False,
+            "exp": 25
+        },
 
-    for bandit in [bandit, bandit_lieutenant, bandit_chief]:
+        {
+            "name": "Red Bandit Lieutenant",
+            "health": 50,
+            "strength": 30,
+            "defense": 10,
+            "dexterity": 10,
+            "level": 2,
+            "goal": False,
+            "exp": 25
+        },
+
+        {
+            "name": "Bandit Chief",
+            "health": 150,
+            "strength": 30,
+            "defense": 20,
+            "dexterity": 10,
+            "level": 3,
+            "goal": True,
+            "exp": 25
+        }]
+
+    for bandit in itertools.cycle(enemies):
         if level == bandit['level']:
-            return bandit
+            return next(bandit)
 
 
 def display_character_info(char):
@@ -218,25 +242,28 @@ def main():
     """
     Drive program.
     """
-    character = make_character()
-    achieved_goal = False
-    while not achieved_goal and character["health"] > 0:
-        execute_glowup_protocol(character)
-        valid_moves = enumerate(["Display character information", "Pick a fight"], 1)
-        print("***\nActions available:\n")
-        for count, value in valid_moves:
-            print(str(count) + ":", value)
-        print("q: Quit")
-        move = input("\nPlease enter an action:")
-        if move == '1':
-            display_character_info(character)
-        elif move == '2':
-            execute_challenge_protocol(character)
-        elif move == 'q':
-            break
-        achieved_goal = check_if_goal_attained(character)
-    if achieved_goal:
-        title_screen.end_screen()
+    # character = make_character()
+    # achieved_goal = False
+    # while not achieved_goal and character["health"] > 0:
+    #     execute_glowup_protocol(character)
+    #     valid_moves = enumerate(["Display character information", "Pick a fight"], 1)
+    #     print("***\nActions available:\n")
+    #     for count, value in valid_moves:
+    #         print(str(count) + ":", value)
+    #     print("q: Quit")
+    #     move = input("\nPlease enter an action:")
+    #     if move == '1':
+    #         display_character_info(character)
+    #     elif move == '2':
+    #         execute_challenge_protocol(character)
+    #     elif move == 'q':
+    #         break
+    #     achieved_goal = check_if_goal_attained(character)
+    # if achieved_goal:
+    #     title_screen.end_screen()
+
+    print(return_entity(1))
+    print(return_entity(1))
 
 
 if __name__ == "__main__":
