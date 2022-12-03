@@ -167,6 +167,12 @@ def execute_glowup_protocol(char):
 
 
 def scale_values(char):
+    """
+    Increase a character's attributes.
+
+    :param char: a character dictionary
+    :return: a character dictionary with increased attributes
+    """
     char_stats = [integer_key for integer_key in char.keys() if type(char[integer_key]) == int and
                   integer_key != 'level']
     for item in char_stats:
