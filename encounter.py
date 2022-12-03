@@ -92,7 +92,7 @@ def return_entity(level):
             "exp": 25
         }]
 
-    for bandit in itertools.cycle(enemies):
+    for bandit in enemies:
         if level == bandit['level']:
             return bandit
 
