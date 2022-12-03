@@ -51,9 +51,9 @@ def game():
             print(str(count) + ":", value)
         print("q: Quit")
         move = input("\nPlease enter an action or direction [w, a, s, d]:")
-        # if move not in directions or move not in commands:
-        #     print("\n***\nThat is not a valid command.\n***\n")
-        #     time.sleep(2)
+        if move not in directions and move not in commands:
+            print("\n***\nThat is not a valid command.\n***\n")
+            time.sleep(2)
         if move == '1':
             encounter.display_character_info(character)
         elif move == '2':
