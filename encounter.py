@@ -9,8 +9,9 @@ import title_screen
 
 def make_character():
     """
+    Generate a dictionary for a player character.
 
-    :return:
+    :return: a dictionary representing a character's attributes
     """
     name = input("What is your name?\n")
     character_board = {
@@ -31,6 +32,13 @@ def make_character():
 
 
 def attack(char, enemy):
+    """
+    Cause damage to an enemy.
+
+    :param char: a character dictionary
+    :param enemy: an enemy dictionary
+    :return: the enemy dictionary with reduced health
+    """
     damage = char["strength"] - (0.25 * enemy["defense"])
     enemy["health"] -= damage
     time.sleep(0.25)
@@ -39,6 +47,13 @@ def attack(char, enemy):
 
 
 def double_strike(char, enemy):
+    """
+    Cause damage twice to an enemy.
+
+    :param char: a character dictionary
+    :param enemy: an enemy dictionary
+    :return: the enemy dictionary with reduced health
+    """
     damage = (char["strength"] - (0.25 * enemy["defense"])) * 0.75
     enemy["health"] -= damage * 2
     time.sleep(0.25)
@@ -49,14 +64,27 @@ def double_strike(char, enemy):
 
 
 def guard(char, enemy):
+    """
+    Restore character health.
+
+    :param char: a character dictionary
+    :param enemy: an enemy dictionary
+    :return: the character dictionary with increased health
+    """
     time.sleep(0.25)
-    print(char["name"], "braces themselves")
+    print(f"{char['name']} raises their guard.")
     damage = (enemy["strength"] - (0.25 * char["defense"])) * 1.5
     char["health"] += damage
     return char
 
 
 def return_entity(level):
+    """
+    Generates an enemy dictionary based on level.
+
+    :param level: an integer representing a level attribute
+    :return: an enemy dictionary
+    """
     enemies = [
         {
             "name": "Bandit",
@@ -97,6 +125,11 @@ def return_entity(level):
 
 
 def display_character_info(char):
+    """
+    Display character information.
+
+    :param char: a character dictionary
+    """
     print("\nCharacter information:\n"
           f"Name: {char['name']}\n"
           f"Health: {char['max_health']}\n"
@@ -108,6 +141,14 @@ def display_character_info(char):
 
 
 def execute_glowup_protocol(char):
+    """
+    Display character increases in stats on level-up.
+
+    Call helper function to increase character attributes.
+
+    :param char: a character dictionary
+    :return: a character dictionary with increased attributes
+    """
     if char["exp"] >= 50:
         time.sleep(0.25)
         print(f"{char['name']} has leveled up!\n\nNew Stats:\n")
@@ -126,6 +167,12 @@ def execute_glowup_protocol(char):
 
 
 def scale_values(char):
+    """
+    Increase a character's attributes.
+
+    :param char: a character dictionary
+    :return: a character dictionary with increased attributes
+    """
     char_stats = [integer_key for integer_key in char.keys() if type(char[integer_key]) == int and
                   integer_key != 'level']
     for item in char_stats:
@@ -142,6 +189,16 @@ def scale_values(char):
 
 
 def execute_challenge_protocol(char):
+    """
+    Invoke an encounter with an enemy.
+
+    Call helper functions: display_combat_menu
+                           validate_move
+                           character_enemy_interaction
+
+    :param char: a character dictionary
+    :return: a character dictionary with modified attributes
+    """
     enemy = return_entity(char["level"])
     print(f"\n***\nCombat has initiated\n***\n{enemy['name']} glares at you menacingly.")
     while enemy["health"] > 0 and char["health"] > 0:
@@ -164,6 +221,12 @@ def execute_challenge_protocol(char):
 
 
 def character_enemy_interaction(char, enemy):
+    """
+    Execute enemy dictionary actions against character dictionary.
+
+    :param char: a character dictionary
+    :param enemy: an enemy dictionary
+    """
     if enemy["health"] <= 0:
         char["exp"] += enemy["exp"]
         print(f"\n{enemy['name']} has been defeated!\n")
