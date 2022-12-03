@@ -236,6 +236,14 @@ def character_enemy_interaction(char, enemy):
 
 
 def display_combat_menu(char, enemy):
+    """
+    Display the combat menu.
+
+    Display valid actions, character current health, and enemy current health.
+
+    :param char: a character dictionary
+    :param enemy: an enemy dictionary
+    """
     print("***\nValid Moves:")
     print("0: Flee")
     for count, value in enumerate(char['skills'], 1):
