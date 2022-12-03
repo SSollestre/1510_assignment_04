@@ -6,6 +6,10 @@ import sys
 
 
 def title_screen_selections():
+    """
+
+    Title screen selections
+    """
     while True:
         option = input('>').lower()
         if option not in ['play', 'quit', 'help']:
@@ -21,6 +25,10 @@ def title_screen_selections():
 
 
 def title_screen():
+    """
+
+    Display title screen.
+    """
     print('##################################')
     print('#    Welcome to the Text RPG!    #')
     print('#       Made by Sean & Emily     #')
@@ -32,6 +40,10 @@ def title_screen():
 
 
 def help_menu():
+    """
+
+    Display Help Menu.
+    """
     print('##################################')
     print('#       Help Documentation       #')
     print('##################################')
@@ -42,6 +54,10 @@ def help_menu():
 
 
 def end_screen():
+    """
+
+    Display End Screen
+    """
     print('##################################')
     print('# Thank you for Playing our DEMO #')
     print('#      Stay tuned for more       #')

@@ -63,12 +63,20 @@ def main():
     """
     Drive Program.
     """
+    paths = [((0, 0), (0, 1)),
+             ((0, 0), (1, 0)),
+             ((0, 1), (0, 2)),
+             ((0, 1), (1, 1)),
+             ((0, 2), (1, 2)),
+             ((1, 0), (1, 1)),
+             ((1, 1), (1, 2)),
+             ((1, 0), (2, 0)),
+             ((2, 0), (2, 1)),
+             ((2, 1), (2, 2)),
+             ((1, 1), (2, 1)),
+             ((1, 2), (2, 2))]
+    create_map = Map(3, 3, 0, 0, paths)
     while True:
-        paths = [((0, 0), (0, 1)),
-                 ((0, 0), (1, 0)),
-                 ((1, 0), (1, 1)),
-                 ((0, 1), (1, 1))]
-        create_map = Map(2, 2, 0, 0, paths)
         directions = ['w', 'a', 's', 'd']
         move = input("\nPlease enter an action or direction [w, a, s, d]:")
         if move in directions:
