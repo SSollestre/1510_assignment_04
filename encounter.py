@@ -190,6 +190,8 @@ def scale_values(char):
     Increase a character's attributes.
 
     :param char: a character dictionary
+    :precondition: char must be a dictionary representing a character
+    :postcondition: return character dictionary with increased statistics
     :return: a character dictionary with increased attributes
     """
     char_stats = [integer_key for integer_key in char.keys() if type(char[integer_key]) == int and
