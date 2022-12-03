@@ -47,6 +47,13 @@ def attack(char, enemy):
 
 
 def double_strike(char, enemy):
+    """
+    Cause damage twice to an enemy.
+
+    :param char: a character dictionary
+    :param enemy: an enemy dictionary
+    :return: the enemy dictionary with reduced health
+    """
     damage = (char["strength"] - (0.25 * enemy["defense"])) * 0.75
     enemy["health"] -= damage * 2
     time.sleep(0.25)
