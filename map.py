@@ -6,14 +6,14 @@ import sys
 
 
 class Map:
-    def __init__(self, height, width, player_row, player_column, paths):
+    def __init__(self, height: int, width: int, player_row: int, player_column: int, paths: list):
         self.height = height
         self.width = width
         self.row = player_row
         self.column = player_column
         self.paths = paths
 
-    def move(self, direction):
+    def move(self, direction: [str]):
         if direction == "w":
             if ((self.row, self.column - 1), (self.row, self.column)) not in self.paths:
                 print("Cannot go north")
