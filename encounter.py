@@ -423,7 +423,7 @@ def character_enemy_interaction(char, enemy):
     :param enemy: an enemy dictionary
     :precondition: char must be a dictionary representing a character
     :precondition: char must be a dictionary representing a target
-    :postcondition: decrease character health values  if enemy health value is above 0
+    :postcondition: decrease character health values if enemy health value is above 0
     :return: a character dictionary with decreased health values
     """
     if enemy["health"] <= 0:
