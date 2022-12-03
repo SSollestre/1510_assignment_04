@@ -79,6 +79,8 @@ def guard(char, enemy):
     :param enemy: an enemy dictionary
     :precondition: char must be a dictionary representing a character
     :precondition: char must be a dictionary representing a target
+    :postcondition: the enemy dictionary's health attribute is reduced based on
+                    strength and defense statistics
     :return: the character dictionary with increased health
     """
     time.sleep(0.25)
@@ -92,7 +94,9 @@ def return_entity(level):
     """
     Generates an enemy dictionary based on level.
 
-    :param level: an integer representing a level attribute
+    :param level: an integer representing a level attribute of a character
+    :precondition: level must be an integer representing a level attribute
+    :postcondition:
     :return: an enemy dictionary
     """
     enemies = [
