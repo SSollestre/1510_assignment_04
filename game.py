@@ -6,6 +6,30 @@ import title_screen
 import map
 import encounter
 import time
+import itertools
+import time
+
+
+def feet(seconds):
+    """Show an animated spinner while we sleep."""
+    symbols = itertools.cycle('@$#%')
+    test = itertools.cycle(['  __ \n'
+                            ' (  )\n'
+                            ' )  (\n'
+                            '(   )\n'
+                            'Ooooo\n',
+                            '\t\t  __\n'
+                            '\t\t (  )\n'
+                            '\t\t )  (\n'
+                            '\t\t(   )\n'
+                            '\t\tOoooo\n'
+
+                            ])
+    upper_time = time.time() + seconds
+    while time.time() < upper_time:
+        time.sleep(0.25)
+        print(next(test))
+    print()
 
 
 def game():
@@ -40,6 +64,7 @@ def game():
             title_screen.end_screen()
             break
         elif move in directions:
+            feet(1)
             map.m.move(move)
             encounter.chance_encounter(character)
         achieved_goal = encounter.check_if_goal_attained(character)
