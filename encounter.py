@@ -198,6 +198,7 @@ def scale_values(char):
                   integer_key != 'level']
     for item in char_stats:
         char[item] *= 1.5
+        char[item] = int(char[item])
     char["level"] = char["level"] + 1
     char["exp"] = 0
     if char['level'] == 2:
@@ -263,7 +264,7 @@ def character_enemy_interaction(char, enemy):
     return char
 
 
-def display_combat_menu(char, enemy):
+def display_combat_menu(char, enemy):  #
     """
     Display the combat menu.
 
@@ -271,11 +272,14 @@ def display_combat_menu(char, enemy):
 
     :param char: a character dictionary
     :param enemy: an enemy dictionary
+    :precondition: char must be a dictionary representing a character
+    :precondition: char must be a dictionary representing a target
+    :postcondition: print the valid user inputs and
     """
     print("***\nValid Moves:")
     print("0: Flee")
     for count, value in enumerate(char['skills'], 1):
-        print(str(count) + ":", value)
+        print(f"{count}: {value}")
     print(f"\n{char['name']}'s current HP: {char['health']}\n"
           f"{enemy['name']}'s current HP: {enemy['health']} \n")
 
