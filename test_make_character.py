@@ -139,7 +139,7 @@ class TestMakeCharacter(TestCase):
         self.assertEqual(expected, actual)
 
     @patch('builtins.input', side_effect=["P1@y3r"])
-    def test_make_character_lower(self, mock_input):
+    def test_make_character_special(self, mock_input):
         actual = make_character()
         expected = {
             "name": "P1@y3r",
