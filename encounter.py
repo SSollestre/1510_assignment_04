@@ -205,7 +205,7 @@ def guard(char: dict, enemy: dict) -> dict:
     return char
 
 
-def return_entity(level: 1) -> dict:
+def return_entity(level: int) -> dict:
     """
     Generates an enemy dictionary based on level.
 
