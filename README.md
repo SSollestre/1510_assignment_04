@@ -19,7 +19,7 @@ Emildore
 ## Any important comments you'd like to make about your work:
 We started assignment04 on November 23, 2022.
 
-Unittests that we were unable to test because of complexity:
+Unit tests that we were unable to test because of complexity:
 - function execute_challenge_protocol
 - function character_enemy_interaction
 - function chance_encounter
