@@ -11,6 +11,20 @@ import time
 
 
 def print_scenario(create_map: Map):
+    """
+    Return a string description of given coordinate and location.
+
+    :param create_map: Map class
+    :return: a string
+    >>> test = Map(2,2,0,0,[((0,0),(0,1)),((0,0),(1,0)),((1,0),(1,1)),((0,1),(1,1))])
+    >>> print_scenario(test)
+    Current location (0, 0)
+    You wake up in a dark damp cave. You remember being knocked out. It seems that you have been kidnapped.
+    >>> test = Map(2,2,0,1,[((0,0),(0,1)),((0,0),(1,0)),((1,0),(1,1)),((0,1),(1,1))])
+    >>> print_scenario(test)
+    Current location (1, 0)
+    You hear scuffling and voices.
+    """
     scenario = {
         (0, 0): 'You wake up in a dark damp cave. '
                 'You remember being knocked out. '
@@ -20,10 +34,10 @@ def print_scenario(create_map: Map):
         (0, 3): 'The cave is dark and damp',
         (0, 4): 'The cave is dark and damp',
         (0, 5): 'The cave is dark and damp',
-        (0, 6): 'The cave is dark and damp',
+        (0, 6): 'You hear scuffling and voices.',
         (0, 7): 'The cave is dark and damp',
         (0, 8): 'The cave is dark and damp',
-        (0, 9): 'The cave is dark and damp',
+        (0, 9): 'You hear scuffling and voices.',
 
         (1, 0): 'You hear scuffling and voices.',
         (1, 1): 'You hear scuffling and voices.',
@@ -31,10 +45,10 @@ def print_scenario(create_map: Map):
         (1, 3): 'The cave is dark and damp',
         (1, 4): 'The cave is dark and damp',
         (1, 5): 'The cave is dark and damp',
-        (1, 6): 'The cave is dark and damp',
+        (1, 6): 'It`s very dark, you can`t make out anything.',
         (1, 7): 'The cave is dark and damp',
         (1, 8): 'The cave is dark and damp',
-        (1, 9): 'The cave is dark and damp',
+        (1, 9): 'It`s very dark, you can`t make out anything.',
 
         (2, 0): 'The cave is dark and damp',
         (2, 1): 'The cave is dark and damp',
@@ -42,7 +56,7 @@ def print_scenario(create_map: Map):
         (2, 3): 'The cave is dark and damp',
         (2, 4): 'The cave is dark and damp',
         (2, 5): 'The cave is dark and damp',
-        (2, 6): 'The cave is dark and damp',
+        (2, 6): 'You hear scuffling and voices.',
         (2, 7): 'The cave is dark and damp',
         (2, 8): 'The cave is dark and damp',
         (2, 9): 'The cave is dark and damp',
@@ -50,79 +64,79 @@ def print_scenario(create_map: Map):
         (3, 0): 'The cave is dark and damp',
         (3, 1): 'The cave is dark and damp',
         (3, 2): 'The cave is dark and damp',
-        (3, 3): 'The cave is dark and damp',
+        (3, 3): 'It`s very dark, you can`t make out anything.',
         (3, 4): 'The cave is dark and damp',
-        (3, 5): 'The cave is dark and damp',
+        (3, 5): 'You hear scuffling and voices.',
         (3, 6): 'The cave is dark and damp',
-        (3, 7): 'The cave is dark and damp',
+        (3, 7): 'It`s very dark, you can`t make out anything.',
         (3, 8): 'The cave is dark and damp',
         (3, 9): 'The cave is dark and damp',
 
         (4, 0): 'The cave is dark and damp',
-        (4, 1): 'The cave is dark and damp',
+        (4, 1): 'You hear scuffling and voices.',
         (4, 2): 'The cave is dark and damp',
         (4, 3): 'The cave is dark and damp',
-        (4, 4): 'The cave is dark and damp',
+        (4, 4): 'It`s very dark, you can`t make out anything.',
         (4, 5): 'The cave is dark and damp',
         (4, 6): 'The cave is dark and damp',
-        (4, 7): 'The cave is dark and damp',
+        (4, 7): 'It`s very dark, you can`t make out anything.',
         (4, 8): 'The cave is dark and damp',
         (4, 9): 'The cave is dark and damp',
 
         (5, 0): 'The cave is dark and damp',
-        (5, 1): 'The cave is dark and damp',
+        (5, 1): 'You hear scuffling and voices.',
         (5, 2): 'The cave is dark and damp',
         (5, 3): 'The cave is dark and damp',
-        (5, 4): 'The cave is dark and damp',
+        (5, 4): 'It`s very dark, you can`t make out anything.',
         (5, 5): 'The cave is dark and damp',
         (5, 6): 'The cave is dark and damp',
-        (5, 7): 'The cave is dark and damp',
+        (5, 7): 'It`s very dark, you can`t make out anything.',
         (5, 8): 'The cave is dark and damp',
         (5, 9): 'The cave is dark and damp',
 
         (6, 0): 'The cave is dark and damp',
-        (6, 1): 'The cave is dark and damp',
+        (6, 1): 'You hear scuffling and voices.',
         (6, 2): 'The cave is dark and damp',
         (6, 3): 'The cave is dark and damp',
-        (6, 4): 'The cave is dark and damp',
+        (6, 4): 'It`s very dark, you can`t make out anything.',
         (6, 5): 'The cave is dark and damp',
         (6, 6): 'The cave is dark and damp',
-        (6, 7): 'The cave is dark and damp',
+        (6, 7): 'It`s very dark, you can`t make out anything.',
         (6, 8): 'The cave is dark and damp',
         (6, 9): 'The cave is dark and damp',
 
         (7, 0): 'The cave is dark and damp',
         (7, 1): 'The cave is dark and damp',
-        (7, 2): 'The cave is dark and damp',
+        (7, 2): 'You hear scuffling and voices.',
         (7, 3): 'The cave is dark and damp',
         (7, 4): 'The cave is dark and damp',
-        (7, 5): 'The cave is dark and damp',
+        (7, 5): 'It`s very dark, you can`t make out anything.',
         (7, 6): 'The cave is dark and damp',
         (7, 7): 'The cave is dark and damp',
-        (7, 8): 'The cave is dark and damp',
+        (7, 8): 'It`s very dark, you can`t make out anything.',
         (7, 9): 'The cave is dark and damp',
 
         (8, 0): 'The cave is dark and damp',
         (8, 1): 'The cave is dark and damp',
-        (8, 2): 'The cave is dark and damp',
+        (8, 2): 'You hear scuffling and voices.',
         (8, 3): 'The cave is dark and damp',
         (8, 4): 'The cave is dark and damp',
-        (8, 5): 'The cave is dark and damp',
+        (8, 5): 'It`s very dark, you can`t make out anything.',
         (8, 6): 'The cave is dark and damp',
         (8, 7): 'The cave is dark and damp',
-        (8, 8): 'The cave is dark and damp',
+        (8, 8): 'It`s very dark, you can`t make out anything.',
         (8, 9): 'The cave is dark and damp',
 
         (9, 0): 'The cave is dark and damp',
         (9, 1): 'The cave is dark and damp',
-        (9, 2): 'The cave is dark and damp',
+        (9, 2): 'You hear scuffling and voices.',
         (9, 3): 'The cave is dark and damp',
         (9, 4): 'The cave is dark and damp',
-        (9, 5): 'The cave is dark and damp',
+        (9, 5): 'You hear scuffling and voices.',
         (9, 6): 'The cave is dark and damp',
         (9, 7): 'The cave is dark and damp',
         (9, 8): 'The cave is dark and damp',
-        (9, 9): 'The cave is dark and damp',
+        (9, 9): 'You see light!',
 
     }
     row = create_map.row
@@ -131,7 +145,9 @@ def print_scenario(create_map: Map):
 
 
 def feet(seconds: int):
-    """Show an animated spinner while we sleep."""
+    """
+    Show an animated spinner while we sleep.
+    """
     walk = itertools.cycle(['  __ \n'
                             ' (  )\n'
                             ' )  (\n'
@@ -153,7 +169,7 @@ def feet(seconds: int):
 
 def game():
     """
-
+    Run the game.
     """
     paths = [((0, 0), (0, 1)),
              ((0, 0), (1, 0)),
