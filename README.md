@@ -24,6 +24,8 @@ Unit tests that we were unable to test because of complexity:
 - function character_enemy_interaction
 - function chance_encounter
 - function validate_move 
+- function feet
+- function game
 
 | Element                           | Location         |
 |-----------------------------------|------------------|
