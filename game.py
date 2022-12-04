@@ -4,8 +4,7 @@ Sean Sollestre    A01333807
 """
 from title_screen import title_screen, end_screen
 from map import Map
-from encounter import make_character, display_character_info, execute_glowup_protocol, execute_challenge_protocol, \
-    chance_encounter, check_if_goal_attained
+from encounter import make_character, display_character_info, execute_glowup_protocol, execute_challenge_protocol, chance_encounter
 import itertools
 import time
 
@@ -353,7 +352,6 @@ def game():
              ((9, 8), (9, 9))]
     title_screen()
     character = make_character()
-    achieved_goal = False
     create_map = Map(10, 10, 0, 0, paths)
     while not character['goal'] and character["health"] > 0:
         directions = ['w', 'a', 's', 'd']
