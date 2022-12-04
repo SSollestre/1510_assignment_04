@@ -81,7 +81,7 @@ def attack(char, enemy):
     ... "exp": 0,
     ... "goal": False,
     ... "skills": {
-    ...    "Basic Attack": attack
+    ...     "Basic Attack": attack
     ...  }
     ... }
     >>> target = {
@@ -90,9 +90,9 @@ def attack(char, enemy):
     ... "strength": 10,
     ... "defense": 10,
     ... "dexterity": 10,
-    ...  "level": 1,
-    ...    "goal": False,
-    ...   "exp": 25
+    ... "level": 1,
+    ... "goal": False,
+    ... "exp": 25
     ...  }
     >>> attack(character, target)
     dummy strikes Bandit for 12.5 damage!
@@ -129,8 +129,8 @@ def double_strike(char, enemy):
     ... "exp": 0,
     ... "goal": False,
     ... "skills": {
-    ...    "Basic Attack": attack
-    ...  }
+    ...     "Basic Attack": attack
+    ... }
     ... }
     >>> target = {
     ... "name": "Bandit",
@@ -138,10 +138,10 @@ def double_strike(char, enemy):
     ... "strength": 10,
     ... "defense": 10,
     ... "dexterity": 10,
-    ...  "level": 1,
-    ...    "goal": False,
-    ...   "exp": 25
-    ...  }
+    ... "level": 1,
+    ... "goal": False,
+    ... "exp": 25
+    ... }
     >>> double_strike(character, target)
     dummy strikes Bandit for 5.625 damage!
     dummy strikes Bandit for 5.625 damage!
@@ -158,7 +158,7 @@ def double_strike(char, enemy):
     ... "exp": 0,
     ... "goal": False,
     ... "skills": {
-    ...    "Basic Attack": attack
+    ...     "Basic Attack": attack
     ...  }
     ... }
     >>> target = {
@@ -167,10 +167,10 @@ def double_strike(char, enemy):
     ... "strength": 10,
     ... "defense": 10,
     ... "dexterity": 10,
-    ...  "level": 1,
-    ...    "goal": False,
-    ...   "exp": 25
-    ...  }
+    ... "level": 1,
+    ... "goal": False,
+    ... "exp": 25
+    ... }
     >>> double_strike(character, target)
     dummy strikes Bandit for 9.375 damage!
     dummy strikes Bandit for 9.375 damage!
@@ -277,8 +277,8 @@ def display_character_info(char):
     ... "exp": 0,
     ... "goal": False,
     ... "skills": {
-    ...    "Basic Attack": attack
-    ...  }
+    ...     "Basic Attack": attack
+    ... }
     ... }
     >>> display_character_info(character)
     <BLANKLINE>
@@ -302,8 +302,8 @@ def display_character_info(char):
     ... "exp": 25,
     ... "goal": False,
     ... "skills": {
-    ...    "Basic Attack": attack
-    ...  }
+    ...     "Basic Attack": attack
+    ... }
     ... }
     >>> display_character_info(character)
     <BLANKLINE>
@@ -458,8 +458,8 @@ def display_combat_menu(char, enemy):
     ... "exp": 0,
     ... "goal": False,
     ... "skills": {
-    ...    "Basic Attack": attack
-    ...  }
+    ...     "Basic Attack": attack
+    ... }
     ... }
     >>> target = {
     ... "name": "Bandit",
@@ -467,10 +467,10 @@ def display_combat_menu(char, enemy):
     ... "strength": 10,
     ... "defense": 10,
     ... "dexterity": 10,
-    ...  "level": 1,
-    ...    "goal": False,
-    ...   "exp": 25
-    ...  }
+    ... "level": 1,
+    ... "goal": False,
+    ... "exp": 25
+    ... }
     >>> display_combat_menu(character, target)
     ***
     Valid Moves:
@@ -480,46 +480,13 @@ def display_combat_menu(char, enemy):
     dummy's current HP: 50
     Bandit's current HP: 50
     <BLANKLINE>
-    >>> character =  {
-    ... "name": "Big Man",
-    ... "max_health": 1000,
-    ... "health": 1000,
-    ... "strength": 10,
-    ... "defense": 10,
-    ... "dexterity": 10,
-    ... "level": 1,
-    ... "exp": 0,
-    ... "goal": False,
-    ... "skills": {
-    ...    "Basic Attack": attack
-    ...  }
-    ... }
-    >>> target = {
-    ... "name": "Bandit",
-    ... "health": 50,
-    ... "strength": 10,
-    ... "defense": 10,
-    ... "dexterity": 10,
-    ...  "level": 1,
-    ...    "goal": False,
-    ...   "exp": 25
-    ...  }
-    >>> display_combat_menu(character, target)
-    ***
-    Valid Moves:
-    0: Flee
-    1: Basic Attack
-    <BLANKLINE>
-    Big Man's current HP: 1000
-    Bandit's current HP: 50
-    <BLANKLINE>
     """
     print("***\nValid Moves:")
     print("0: Flee")
     for count, value in enumerate(char['skills'], 1):
         print(f"{count}: {value}")
     print(f"\n{char['name']}'s current HP: {char['health']}\n"
-          f"{enemy['name']}'s current HP: {enemy['health']}\n")
+          f"{enemy['name']}'s current HP: {enemy['health']} \n")
 
 
 def validate_move(action, char, enemy):
