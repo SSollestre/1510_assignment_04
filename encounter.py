@@ -489,7 +489,7 @@ def display_combat_menu(char: dict, enemy: dict) -> None:
           f"{enemy['name']}'s current HP: {enemy['health']}\n")
 
 
-def validate_move(action: str, char: dict, enemy: dict) -> (dict, dict):
+def validate_move(action: str, char: dict, enemy: dict) -> (False, (dict, dict)):
     """
     Determine if action is a valid move or not.
 
