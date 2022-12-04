@@ -20,7 +20,6 @@ Emildore
 We started assignment04 on November 23, 2022.
 
 Unittests that we were unable to test because they called other functions:
-- Class Map
 - function execute_challenge_protocol
 - function execute_glowup_protocol
 - function character_enemy_interaction
