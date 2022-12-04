@@ -19,16 +19,24 @@ Emildore
 ## Any important comments you'd like to make about your work:
 We started assignment04 on November 23, 2022.
 
+Unittests that we were unable to test because they called other functions:
+- Class Map
+- function execute_challenge_protocol
+- function execute_glowup_protocol
+- function character_enemy_interaction
+- function chance_encounter
+- function validate_move 
+
 | Element                           | Location         |
 |-----------------------------------|------------------|
-| tuples                            | game.py 15       |
-| list                              | game.py 168      |
-| dictionary or list comprehension  | encounter.py 130 |
-| selection using if statement      | encounter.py 202 |
-| repetition with for or while loop | game.py 149      |
-| membership operator (in)          | game.py 355      |
-| range                             | map.py 39        |
-| itertools function                | game.py 136      |
-| enumerate function                | encounter.py 227 |
-| filter or map function            | encounter.py 186 |
-| random module                     | encounter.py 208 |
+| tuples                            | game.py 28       |
+| list                              | game.py 173      |
+| dictionary or list comprehension  | encounter.py 368 |
+| selection using if statement      | encounter.py 508 |
+| repetition with for or while loop | game.py 356      |
+| membership operator (in)          | game.py 363      |
+| range                             | map.py 79        |
+| itertools function                | game.py 150      |
+| enumerate function                | encounter.py 486 |
+| filter or map function            | encounter.py 507 |
+| random module                     | encounter.py 530 |
