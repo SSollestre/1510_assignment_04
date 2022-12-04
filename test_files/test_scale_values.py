@@ -1,4 +1,6 @@
 from unittest import TestCase
+from unittest.mock import patch
+import io
 
 from encounter import scale_values, attack, double_strike, guard
 
@@ -36,8 +38,9 @@ class TestScaleValues(TestCase):
             }
         }
 
-    def test_scale_values_level_two(self):
-        expected = {
+    @patch('sys.stdout', new_callable=io.StringIO)
+    def test_scale_values_level_two(self, mock_output):
+        expected_return = {
             "name": "Player",
             "max_health": 50 * 1.5,
             "health": 50 * 1.5,
@@ -52,11 +55,15 @@ class TestScaleValues(TestCase):
                 "Double Strike": double_strike
             }
         }
-        actual = scale_values(self.character_one)
-        self.assertEqual(expected, actual)
+        expected_display = "Skills:['Basic Attack'] + ['Double Strike']\n\n"
+        actual_return = scale_values(self.character_one)
+        actual_display = mock_output.getvalue()
+        self.assertEqual(expected_display, actual_display)
+        self.assertEqual(expected_return, actual_return)
 
-    def test_scale_values_level_three(self):
-        expected = {
+    @patch('sys.stdout', new_callable=io.StringIO)
+    def test_scale_values_level_three(self, mock_output):
+        expected_return = {
             "name": "Player",
             "max_health": int((50 * 1.5) * 1.5),
             "health": int(((50 * 1.5) * 1.5)),
@@ -72,5 +79,8 @@ class TestScaleValues(TestCase):
                 "Guard": guard
             }
         }
-        actual = scale_values(self.character_two)
-        self.assertEqual(expected, actual)
+        expected_display = "Skills:['Basic Attack', 'Double Strike'] + ['Guard']\n\n"
+        actual_return = scale_values(self.character_two)
+        actual_display = mock_output.getvalue()
+        self.assertEqual(expected_display, actual_display)
+        self.assertEqual(expected_return, actual_return)
