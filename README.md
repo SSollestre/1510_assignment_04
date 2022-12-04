@@ -17,7 +17,7 @@ SSollestre
 Emildore
 
 ## Any important comments you'd like to make about your work:
-I started assignment04 on November 23, 2022.
+We started assignment04 on November 23, 2022.
 
 | Element                           | Location         |
 |-----------------------------------|------------------|
