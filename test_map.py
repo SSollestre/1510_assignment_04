@@ -28,21 +28,21 @@ class TestMap(TestCase):
         self.assertEqual(expected, actual)
 
     def test_move_down(self):
-        self.chart.move('w')
-        expected = 0
+        self.chart.move('s')
+        expected = 2
         actual = self.chart.row
         self.assertEqual(expected, actual)
 
     def test_move_left(self):
-        self.chart.move('w')
+        self.chart.move('a')
         expected = 0
-        actual = self.chart.row
+        actual = self.chart.column
         self.assertEqual(expected, actual)
 
     def test_move_right(self):
-        self.chart.move('w')
-        expected = 0
-        actual = self.chart.row
+        self.chart.move('d')
+        expected = 2
+        actual = self.chart.column
         self.assertEqual(expected, actual)
 
     @patch('sys.stdout', new_callable=io.StringIO)
