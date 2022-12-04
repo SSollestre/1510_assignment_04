@@ -5,15 +5,15 @@ Every program needs a README.md
 This is written in markdown. Read about markdown here: [markdowncheatsheet](https://www.markdownguide.org/cheat-sheet/)
 
 ## Your name:
-Sean Sollestre
+Sean Sollestre  
 Emily Tran
 
 ## Your student number:
-A01333807
+A01333807  
 A00990221
 
 ## Your GitHub account ID:
-SSollestre
+SSollestre  
 Emildore
 
 ## Any important comments you'd like to make about your work:
@@ -21,7 +21,6 @@ We started assignment04 on November 23, 2022.
 
 Unittests that we were unable to test because they called other functions:
 - function execute_challenge_protocol
-- function execute_glowup_protocol
 - function character_enemy_interaction
 - function chance_encounter
 - function validate_move 
