@@ -147,11 +147,11 @@ def feet(seconds: int):
     """
     Show an animated spinner while we sleep.
     """
-    walk = itertools.cycle(['  __ \n'
-                            ' (  )\n'
-                            ' )  (\n'
+    walk = itertools.cycle([' __  \n'
+                            '(  ) \n'
+                            ')  ( \n'
                             '(   )\n'
-                            'Ooooo\n',
+                            'ooooO\n',
                             '\t\t  __\n'
                             '\t\t (  )\n'
                             '\t\t )  (\n'
