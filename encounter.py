@@ -7,7 +7,7 @@ import random
 from title_screen import end_screen
 
 
-def make_character():
+def make_character() -> dict:
     """
     Generate a character sheet as dictionary for a player character.
 
@@ -31,7 +31,7 @@ def make_character():
     return character_board
 
 
-def attack(char, enemy):
+def attack(char: dict, enemy: dict) -> dict:
     """
     Cause damage to an enemy.
 
@@ -107,7 +107,7 @@ def attack(char, enemy):
     return enemy
 
 
-def double_strike(char, enemy):
+def double_strike(char: dict, enemy: dict) -> dict:
     """
     Cause damage twice to an enemy.
 
@@ -186,7 +186,7 @@ def double_strike(char, enemy):
     return enemy
 
 
-def guard(char, enemy):
+def guard(char: dict, enemy: dict) -> dict:
     """
     Restore character health.
 
@@ -205,7 +205,7 @@ def guard(char, enemy):
     return char
 
 
-def return_entity(level):
+def return_entity(level: str) -> dict:
     """
     Generates an enemy dictionary based on level.
 
@@ -259,7 +259,7 @@ def return_entity(level):
             return bandit
 
 
-def display_character_info(char):
+def display_character_info(char: dict) -> None:
     """
     Display character information.
 
@@ -327,7 +327,7 @@ def display_character_info(char):
           f"Skills: {list(char['skills'].keys())}\n")
 
 
-def execute_glowup_protocol(char):
+def execute_glowup_protocol(char: dict) -> dict:
     """
     Display character increases in stats on level-up.
 
@@ -356,7 +356,7 @@ def execute_glowup_protocol(char):
     return char
 
 
-def scale_values(char):
+def scale_values(char: dict) -> dict:
     """
     Increase a character's attributes.
 
@@ -381,7 +381,7 @@ def scale_values(char):
     return char
 
 
-def execute_challenge_protocol(char):
+def execute_challenge_protocol(char: dict) -> dict:
     """
     Invoke an encounter with an enemy.
 
@@ -415,7 +415,7 @@ def execute_challenge_protocol(char):
     return char
 
 
-def character_enemy_interaction(char, enemy):
+def character_enemy_interaction(char: dict, enemy: dict) -> dict:
     """
     Execute enemy dictionary actions against character dictionary.
 
@@ -435,7 +435,7 @@ def character_enemy_interaction(char, enemy):
     return char
 
 
-def display_combat_menu(char, enemy):
+def display_combat_menu(char: dict, enemy: dict) -> None:
     """
     Display the combat menu.
 
@@ -486,10 +486,10 @@ def display_combat_menu(char, enemy):
     for count, value in enumerate(char['skills'], 1):
         print(f"{count}: {value}")
     print(f"\n{char['name']}'s current HP: {char['health']}\n"
-          f"{enemy['name']}'s current HP: {enemy['health']} \n")
+          f"{enemy['name']}'s current HP: {enemy['health']}\n")
 
 
-def validate_move(action, char, enemy):
+def validate_move(action: str, char: dict, enemy: dict) -> (dict, dict):
     """
     Determine if action is a valid move or not.
 
@@ -519,7 +519,7 @@ def validate_move(action, char, enemy):
     return char, enemy
 
 
-def chance_encounter(char):
+def chance_encounter(char: dict) -> None:
     """
     Determine whether run execute challenge protocol.
 
