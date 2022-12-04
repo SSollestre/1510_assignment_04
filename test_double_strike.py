@@ -6,7 +6,6 @@ import io
 from encounter import double_strike
 
 
-
 class TestDoubleStrike(TestCase):
     def setUp(self) -> None:
         self.character = {
