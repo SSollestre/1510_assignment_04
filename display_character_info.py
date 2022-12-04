@@ -26,12 +26,13 @@ class DisplayCharacterInfoTest(TestCase):
     @patch('sys.stdout', new_callable=io.StringIO)
     def test_display_character_info(self, mock_stdout):
         display_character_info(self.character)
-        expected = "Character information:\n" \
-                   "Name: Player\n" \
-                   "Health: 50\n" \
-                   "Strength: 10\n" \
-                   "Defense: 10\n" \
-                   "Dexterity: 10\n" \
-                   "Level: 1\n" \
-                   "Skills: ['Basic Attack']\n"
-        self.assertEqual(mock_stdout.getvalue(), expected)
+        actual = mock_stdout.getvalue()
+        expected = ("\nCharacter information:\n" 
+                    "Name: Player\n" 
+                    "Health: 50\n" 
+                    "Strength: 10\n" 
+                    "Defense: 10\n" 
+                    "Dexterity: 10\n" 
+                    "Level: 1\n" 
+                    "Skills: ['Basic Attack']\n\n")
+        self.assertEqual(expected, actual)
