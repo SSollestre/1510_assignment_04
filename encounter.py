@@ -205,7 +205,7 @@ def guard(char: dict, enemy: dict) -> dict:
     return char
 
 
-def return_entity(level: str) -> dict:
+def return_entity(level: 1) -> dict:
     """
     Generates an enemy dictionary based on level.
 
@@ -415,7 +415,7 @@ def execute_challenge_protocol(char: dict) -> dict:
     return char
 
 
-def character_enemy_interaction(char: dict, enemy: dict) -> dict:
+def character_enemy_interaction(char: dict, enemy: dict) -> (dict, None):
     """
     Execute enemy dictionary actions against character dictionary.
 
