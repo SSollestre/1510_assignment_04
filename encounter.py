@@ -373,10 +373,10 @@ def scale_values(char: dict) -> dict:
     char["level"] = char["level"] + 1
     char["exp"] = 0
     if char['level'] == 2:
-        print("Skills:%s + ['Double Strike']" % (list(char["skills"].keys())) + "\n")
+        print(f"Skills:{list(char['skills'].keys())} + ['Double Strike']\n")
         char["skills"]["Double Strike"] = double_strike
     if char['level'] == 3:
-        print("Skills:%s + ['Guard']" % (list(char["skills"].keys())) + "\n")
+        print(f"Skills:{list(char['skills'].keys())} + ['Guard']\n")
         char["skills"]["Guard"] = guard
     return char
 
