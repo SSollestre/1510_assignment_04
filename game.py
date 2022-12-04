@@ -339,7 +339,7 @@ def game():
     character = make_character()
     achieved_goal = False
     create_map = Map(10, 10, 0, 0, paths)
-    while not achieved_goal and character["health"] > 0:
+    while not character['goal'] and character["health"] > 0:
         directions = ['w', 'a', 's', 'd']
         commands = ['1', '2', '3', 'q']
         print_scenario(create_map)
@@ -366,8 +366,7 @@ def game():
             feet(1)
             create_map.move(move)
             chance_encounter(character)
-        achieved_goal = check_if_goal_attained(character)
-    if achieved_goal:
+    if character['goal']:
         end_screen()
 
 

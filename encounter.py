@@ -447,6 +447,39 @@ def display_combat_menu(char, enemy):
     :precondition: char must be a dictionary representing a target
     :postcondition: print the valid user inputs
     :postcondition: print current character and enemy health values
+    >>> character =  {
+    ... "name": "dummy",
+    ... "max_health": 50,
+    ... "health": 50,
+    ... "strength": 10,
+    ... "defense": 10,
+    ... "dexterity": 10,
+    ... "level": 1,
+    ... "exp": 0,
+    ... "goal": False,
+    ... "skills": {
+    ...    "Basic Attack": attack
+    ...  }
+    ... }
+    >>> target = {
+    ... "name": "Bandit",
+    ... "health": 50,
+    ... "strength": 10,
+    ... "defense": 10,
+    ... "dexterity": 10,
+    ...  "level": 1,
+    ...    "goal": False,
+    ...   "exp": 25
+    ...  }
+    >>> display_combat_menu(character, target)
+    ***
+    Valid Moves:
+    0: Flee
+    1: Basic Attack
+    <BLANKLINE>
+    dummy's current HP: 50
+    Bandit's current HP: 50
+    <BLANKLINE>
     """
     print("***\nValid Moves:")
     print("0: Flee")
@@ -524,8 +557,7 @@ def main():
     Drive the program.
     """
     character = make_character()
-    achieved_goal = False
-    while not achieved_goal and character["health"] > 0:
+    while not character['goal'] and character["health"] > 0:
         execute_glowup_protocol(character)
         valid_moves = enumerate(["Display character information", "Pick a fight"], 1)
         print("***\nActions available:\n")
@@ -539,8 +571,7 @@ def main():
             execute_challenge_protocol(character)
         elif move == 'q':
             break
-        achieved_goal = check_if_goal_attained(character)
-    if achieved_goal:
+    if character['goal']:
         end_screen()
 
 
