@@ -4,6 +4,7 @@ from encounter import return_entity
 
 
 class ReturnEntityTest(TestCase):
+
     def test_return_entity_1(self):
         expected = {
             "name": "Bandit",
