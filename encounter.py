@@ -562,10 +562,13 @@ def chance_encounter(char):
     """
     number = random.randint(0, 10)
     if char["level"] == 1 and number <= 2:
+        print("You have been spotted!")
         execute_challenge_protocol(char)
     elif char["level"] == 2 and number <= 5:
+        print("You have been spotted!")
         execute_challenge_protocol(char)
     elif char["level"] == 3 and number <= 8:
+        print("You have been spotted!")
         execute_challenge_protocol(char)
     else:
         print("Nobody notices you.")
