@@ -27,14 +27,14 @@ Unittests that we were unable to test because they called other functions:
 
 | Element                           | Location         |
 |-----------------------------------|------------------|
-| tuples                            | game.py 28       |
-| list                              | game.py 173      |
+| tuples                            | game.py       28 |
+| list                              | game.py      173 |
 | dictionary or list comprehension  | encounter.py 368 |
 | selection using if statement      | encounter.py 508 |
-| repetition with for or while loop | game.py 356      |
-| membership operator (in)          | game.py 363      |
-| range                             | map.py 79        |
-| itertools function                | game.py 150      |
+| repetition with for or while loop | game.py      356 |
+| membership operator (in)          | game.py      363 |
+| range                             | map.py        79 |
+| itertools function                | game.py      150 |
 | enumerate function                | encounter.py 486 |
 | filter or map function            | encounter.py 507 |
 | random module                     | encounter.py 530 |
