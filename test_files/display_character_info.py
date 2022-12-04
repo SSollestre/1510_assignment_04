@@ -55,17 +55,18 @@ class DisplayCharacterInfoTest(TestCase):
                 "Guard": guard
             }
         }
+
     @patch('sys.stdout', new_callable=io.StringIO)
     def test_display_character_info_level_one(self, mock_stdout):
         display_character_info(self.character_one)
         actual = mock_stdout.getvalue()
-        expected = ("\nCharacter information:\n" 
-                    "Name: Player\n" 
-                    "Health: 50\n" 
-                    "Strength: 10\n" 
-                    "Defense: 10\n" 
-                    "Dexterity: 10\n" 
-                    "Level: 1\n" 
+        expected = ("\nCharacter information:\n"
+                    "Name: Player\n"
+                    "Health: 50\n"
+                    "Strength: 10\n"
+                    "Defense: 10\n"
+                    "Dexterity: 10\n"
+                    "Level: 1\n"
                     "Skills: ['Basic Attack']\n\n")
         self.assertEqual(expected, actual)
 
@@ -73,13 +74,13 @@ class DisplayCharacterInfoTest(TestCase):
     def test_display_character_info_level_two(self, mock_stdout):
         display_character_info(self.character_two)
         actual = mock_stdout.getvalue()
-        expected = ("\nCharacter information:\n" 
-                    "Name: Player\n" 
-                    "Health: 75\n" 
-                    "Strength: 15\n" 
-                    "Defense: 15\n" 
-                    "Dexterity: 15\n" 
-                    "Level: 2\n" 
+        expected = ("\nCharacter information:\n"
+                    "Name: Player\n"
+                    "Health: 75\n"
+                    "Strength: 15\n"
+                    "Defense: 15\n"
+                    "Dexterity: 15\n"
+                    "Level: 2\n"
                     "Skills: ['Basic Attack', 'Double Strike']\n\n")
         self.assertEqual(expected, actual)
 
@@ -87,12 +88,12 @@ class DisplayCharacterInfoTest(TestCase):
     def test_display_character_info_level_three(self, mock_stdout):
         display_character_info(self.character_three)
         actual = mock_stdout.getvalue()
-        expected = ("\nCharacter information:\n" 
-                    "Name: Player\n" 
-                    "Health: 112\n" 
-                    "Strength: 22\n" 
-                    "Defense: 22\n" 
-                    "Dexterity: 22\n" 
-                    "Level: 3\n" 
+        expected = ("\nCharacter information:\n"
+                    "Name: Player\n"
+                    "Health: 112\n"
+                    "Strength: 22\n"
+                    "Defense: 22\n"
+                    "Dexterity: 22\n"
+                    "Level: 3\n"
                     "Skills: ['Basic Attack', 'Double Strike', 'Guard']\n\n")
         self.assertEqual(expected, actual)

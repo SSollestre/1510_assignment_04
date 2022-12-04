@@ -47,7 +47,7 @@ class ReturnEntityTest(TestCase):
         actual = return_entity(3)
         self.assertEqual(expected, actual)
 
-    def test_return_entity_non_exisentent(self):
+    def test_return_entity_non_existent(self):
         expected = None
         actual = return_entity(4)
         self.assertEqual(expected, actual)

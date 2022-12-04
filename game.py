@@ -4,7 +4,8 @@ Sean Sollestre    A01333807
 """
 from title_screen import title_screen, end_screen
 from map import Map
-from encounter import make_character, display_character_info, execute_glowup_protocol, execute_challenge_protocol, chance_encounter
+from encounter import make_character, display_character_info, execute_glowup_protocol, execute_challenge_protocol, \
+    chance_encounter
 import itertools
 import time
 
