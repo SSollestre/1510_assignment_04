@@ -9,8 +9,8 @@ Sean Sollestre
 Emily Tran
 
 ## Your student number:
-A01333807  
-A00990221
+A01333807   (Sean)
+A00990221   (Emily)
 
 ## Your GitHub account ID:
 SSollestre  
