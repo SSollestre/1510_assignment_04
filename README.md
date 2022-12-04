@@ -40,3 +40,4 @@ Unittests that we were unable to test because they called other functions:
 | enumerate function                | encounter.py 486 |
 | filter or map function            | encounter.py 507 |
 | random module                     | encounter.py 530 |
+

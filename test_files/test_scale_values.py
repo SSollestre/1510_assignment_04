@@ -1,7 +1,4 @@
 from unittest import TestCase
-from unittest.mock import patch
-import io
-
 
 from encounter import scale_values, attack, double_strike, guard
 
